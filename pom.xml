@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>mygrp</groupId>
-	<artifactId>myproj</artifactId>
+	<groupId>mg</groupId>
+	<artifactId>ma</artifactId>
 	<name>Your Web App -  powered by Witchcraft MDA</name>
 	<version>1.0-SNAPSHOT</version>
 	<packaging>war</packaging>
@@ -63,17 +64,14 @@
 		<finalName>cerebrumehr</finalName>
 		<plugins>
 			<plugin>
-				<artifactId>myprojven-compiler-plugin</artifactId>
-				<version>1.0-SNAPSHOT</version>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
 			</plugin>
-			<plugin>
-				<artifactId>myprojven-war-plugin</artifactId>
-				<version>1.0-SNAPSHOT</version>
-			</plugin>
+			
 			<plugin>
 				<groupId>org.mortbay.jetty</groupId>
-				<artifactId>jetty-myprojven-plugin</artifactId>
-				<version>1.0-SNAPSHOT</version>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>7.6.14.v20131031</version>
 				<configuration>
 					<connectors>
 						<connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
@@ -92,8 +90,8 @@
 				<!-- <configuration> <scanIntervalSeconds>10</scanIntervalSeconds> </configuration> -->
 			</plugin>
 			<plugin>
-				<artifactId>myprojven-surefire-plugin</artifactId>
-				<version>1.0-SNAPSHOT</version>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.12</version>
 				<configuration>
 					<classpathDependencyExcludes>
 						<!-- exclude code absent api -->
@@ -105,8 +103,8 @@
 
 			<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>
-				<artifactId>tomcat7-myprojven-plugin</artifactId>
-				<version>1.0-SNAPSHOT</version>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.2</version>
 				<configuration>
 					<url>http://37.187.117.141:8080/manager/text</url>
 					<server>TomcatServer</server>
@@ -117,7 +115,7 @@
 
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>build-helper-myprojven-plugin</artifactId>
+				<artifactId>build-helper-maven-plugin</artifactId>
 				<executions>
 					<execution>
 						<phase>generate-sources</phase>
@@ -136,7 +134,7 @@
 
 
 			<plugin>
-				<artifactId>myprojven-war-plugin</artifactId>
+				<artifactId>maven-war-plugin</artifactId>
 				<configuration>
 					<webResources>
 						<resource>
@@ -196,6 +194,7 @@
 			<scope>test</scope>
 		</dependency>
 
+<!--  
 		<dependency>
 			<groupId>com.thoughtworks.xstream</groupId>
 			<artifactId>xstream</artifactId>
@@ -203,7 +202,7 @@
 			<scope>compile</scope>
 		</dependency>
 
-
+-->
 
 		<!-- PF -->
 		<dependency>
@@ -246,8 +245,8 @@
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-entitymyprojnager</artifactId>
-			<version>1.0-SNAPSHOT</version>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>4.1.9.Final</version>
 			<exclusions>
 				<exclusion>
 					<artifactId>xml-apis</artifactId>
@@ -265,7 +264,14 @@
 			<artifactId>hibernate-envers</artifactId>
 			<version>4.1.9.Final</version>
 		</dependency>
-		
+		<dependency>
+			<groupId>org.richfaces.ui</groupId>
+			<artifactId>richfaces-components-ui</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.richfaces.core</groupId>
+			<artifactId>richfaces-core-impl</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>javax.faces</groupId>
 			<artifactId>javax.faces-api</artifactId>
@@ -541,7 +547,7 @@
 			<build>
 				<plugins>
 					<plugin>
-						<artifactId>myprojven-war-plugin</artifactId>
+						<artifactId>maven-war-plugin</artifactId>
 						<configuration>
 							<webappDirectory>${project.build.directory}/${project.build.finalName}-jee6</webappDirectory>
 							<classifier>jee6</classifier>
@@ -549,8 +555,8 @@
 					</plugin>
 
 					<plugin>
-						<artifactId>myprojven-surefire-plugin</artifactId>
-						<version>1.0-SNAPSHOT</version>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<version>2.12</version>
 					</plugin>
 				</plugins>
 			</build>
@@ -579,7 +585,7 @@
 			<build>
 				<plugins>
 					<plugin>
-						<artifactId>myprojven-war-plugin</artifactId>
+						<artifactId>maven-war-plugin</artifactId>
 						<executions>
 							<execution>
 								<id>jee6</id>
