@@ -1,0 +1,46 @@
+<jbpm-configuration>
+
+	<jbpm-context>
+
+		<service name="persistence">
+			<factory>
+				<bean class="org.jbpm.persistence.db.DbPersistenceServiceFactory">
+					<field name="isTransactionEnabled">
+						<false />
+					</field>
+				</bean>
+			</factory>
+		</service>
+		<service name="tx" factory="org.jbpm.tx.TxServiceFactory" />
+		<service name="message" factory="org.jbpm.msg.db.DbMessageServiceFactory" />
+		<service name="scheduler" factory="org.jbpm.scheduler.db.DbSchedulerServiceFactory" />
+		<service name="logging" factory="org.jbpm.logging.db.DbLoggingServiceFactory" />
+		<service name="authentication"
+			factory="org.jbpm.security.authentication.DefaultAuthenticationServiceFactory" />
+
+	</jbpm-context>
+
+
+	<bean name='jbpm.myprojil.address.resolver'
+		class='mygrp.jbpm.myprojil.IdentityAddressResolver'
+		singleton='true' />
+
+	<string name="resource.myprojil.templates" value="jbpm.myprojil.templates.xml" />
+
+	<string name="jbpm.myprojil.smtp.host" value="smtp.gmyprojil.com" />
+
+	<string name="jbpm.myprojil.from.address" value="neonwc@gmyprojil.com" />
+	<string name="jbpm.myprojil.user" value="neonwc@gmyprojil.com" />
+	<string name="jbpm.myprojil.pass" value="witchcraft" />
+	<string name="jbpm.myprojil.port" value="465" />
+	<string name="jbpm.myprojil.smtp.socketFactory.port" value="465" />
+	<string name="jbpm.myprojil.smtp.socketFactory.class" value="javax.net.ssl.SSLSocketFactory" />
+	<string name="jbpm.myprojil.smtp.auth" value="true" />
+	<string name="jbpm.myprojil.smtp.starttls.enable" value="true" />
+	<string name="jbpm.myprojil.debug" value="true" />
+	<string name="jbpm.myprojil.smtp.socketFactory.fallback" value="false" />
+	<string name="jbpm.myprojil.advanced.config" value="true" />
+	<string name='myprojil.class.name' value='mygrp.jbpm.myprojil.Mail' />
+
+
+</jbpm-configuration>
