@@ -17,10 +17,9 @@ import org.jboss.seam.log.Log;
 import org.jboss.seam.security.Credentials;
 import org.jboss.seam.security.Identity;
 import org.jboss.seam.security.permission.RuleBasedPermissionResolver;
-import org.witchcraft.base.entity.UserUtilAction;
-
-import com.oreon.cerebrum.users.AppRole;
-import com.oreon.cerebrum.users.AppUser;
+import org.witchcraft.seam.action.UserUtilAction;
+import org.witchcraft.users.AppRole;
+import org.witchcraft.users.AppUser;
 
 @Name("authenticator")
 public class Authenticator {

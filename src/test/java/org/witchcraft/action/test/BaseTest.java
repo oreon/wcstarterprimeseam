@@ -1,4 +1,4 @@
-package  mygrp.action.test;
+package  org.witchcraft.action.test;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -9,8 +9,8 @@ import org.jboss.seam.mock.JUnitSeamTest;
 import org.jboss.seam.security.Identity;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
-import mygrp.base.entity.BaseEntity;
-import mygrp.seam.action.BaseAction;
+import org.witchcraft.base.entity.BaseEntity;
+import org.witchcraft.seam.action.BaseAction;
 
 public abstract class BaseTest<T extends BaseEntity> extends JUnitSeamTest {
 	

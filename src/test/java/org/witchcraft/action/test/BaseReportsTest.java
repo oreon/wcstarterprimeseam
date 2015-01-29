@@ -1,4 +1,4 @@
-package mygrp.action.test;
+package org.witchcraft.action.test;
 
 import java.io.InputStream;
 import java.util.HashMap;
@@ -57,7 +57,7 @@ public class BaseReportsTest extends JUnitSeamTest{
 		jasperReport = JasperCompileManager.compileReport(reportStreamXML);
 		jasperPrint = JasperFillManager.fillReport(jasperReport, parameters);
 		JasperExportManager.exportReportToPdfFile(jasperPrint,
-				"src/myprojin/resources/reports/" + reportName + ".pdf");
+				"src/main/resources/reports/" + reportName + ".pdf");
 
 	}
 

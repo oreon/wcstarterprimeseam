@@ -27,6 +27,7 @@ import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.Index;
 import org.jboss.seam.Component;
 import org.witchcraft.seam.action.UserUtilAction;
+import org.witchcraft.users.AppUser;
 
 
 
@@ -217,9 +218,10 @@ public class BaseEntity implements Serializable{
 		UserUtilAction userUtilAction = (UserUtilAction) Component
 				.getInstance("userUtilAction");
 
+		/*
 		if (tenant == null || tenant == 0)
 			setTenant(userUtilAction.getCurrentTenantId());
-
+		*/
 	}
 	
 /*

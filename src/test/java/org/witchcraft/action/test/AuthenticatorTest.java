@@ -1,4 +1,4 @@
-package mygrp.action.test;
+package org.witchcraft.action.test;
 
 import java.io.File;
 
@@ -15,9 +15,9 @@ import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import mygrp.seam.action.BaseAction;
-import mygrp.users.AppRole;
-import mygrp.users.AppUser;
+import org.witchcraft.seam.action.BaseAction;
+import org.witchcraft.users.AppRole;
+import org.witchcraft.users.AppUser;
 
 @RunWith(Arquillian.class)
 public class AuthenticatorTest extends BaseTest<AppUser> {
@@ -40,7 +40,7 @@ public class AuthenticatorTest extends BaseTest<AppUser> {
 	public static Archive<?> createDeployment()
 	{
 		WebArchive web = ShrinkWrap.create(ZipImporter.class)
-				.importFrom(new File("../myproj/target/myproj.war"))
+				.importFrom(new File("../ma/target/ma.war"))
 				.as(WebArchive.class);
 		web.addClasses(AuthenticatorTest.class);
 		
@@ -83,7 +83,7 @@ public class AuthenticatorTest extends BaseTest<AppUser> {
 				createUserAndRole( "admin", "admin", "admin");
 				createUserAndRole( "jim", "jim", "support");
 				createUserAndRole( "roger", "roger", "support");
-				createUserAndRole( "erica", "erica", "myprojnager");
+				createUserAndRole( "erica", "erica", "manager");
 			}
 			
 		}.run();

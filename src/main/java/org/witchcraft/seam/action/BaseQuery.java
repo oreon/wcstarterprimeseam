@@ -58,8 +58,6 @@ import org.witchcraft.base.entity.Range;
 import org.witchcraft.base.entity.SavedSearch;
 import org.witchcraft.exceptions.ContractViolationException;
 
-import com.oreon.cerebrum.web.action.users.AppUserAction;
-
 /**
  * @author User
  * 
@@ -85,8 +83,8 @@ public abstract class BaseQuery<E extends BaseEntity, PK extends Serializable>
 	@In
 	protected StatusMessages statusMessages;
 
-	@In(create = true)
-	AppUserAction appUserAction;
+	//@In(create = true)
+	//AppUserAction appUserAction;
 
 	private Range<java.util.Date> dateCreatedRange = new Range<Date>();
 
@@ -584,9 +582,10 @@ public abstract class BaseQuery<E extends BaseEntity, PK extends Serializable>
 		search.setSearchName(searchName);
 		search.setEntityName(getEntityClass().getSimpleName());
 		search.setEncodedXml(encode());
+		/*
 		search.setCreatedByUser(appUserAction.findByUnqUserName(identity
 				.getCredentials().getUsername()));
-
+		*/
 		entityManager.persist(search);
 	}
 
