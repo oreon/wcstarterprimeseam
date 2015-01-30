@@ -41,7 +41,7 @@ public class InvestorFlowAction implements Serializable{
 	
 	@Create
 	public void initme(){
-		answeredQuestionnaire = answeredQuestionnaireAction.getInstance();
+		//answeredQuestionnaire = answeredQuestionnaireAction.getInstance();
 		//setCustomer(new Customer());
 	}
 	
