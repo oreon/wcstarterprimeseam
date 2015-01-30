@@ -15,9 +15,12 @@
 
 		<h:form>
 			<p:wizard flowListener="#{investorFlowAction.onFlowProcess}">
+			
+				<p:tab id="answer" title="Abswer">
+					<h:inputText value="#{investorFlowAction.answer}"> </h:inputText>
+				</p:tab>
 
 				<p:tab id="personal" title="Personal">
-
 
 					<ui:include
 						src="/admin/entities/commerce/customer/editCustomerComponent.xhtml">
@@ -31,6 +34,7 @@
 						<ui:param name="answeredQuestionnaire"
 							value="#{investorFlowAction.answeredQuestionnaire}" />
 							
+							<ui:param name="myaction" value="#{investorFlowAction}" />
 							<ui:param name="excludeCustomer" value="true"/>
             				<ui:param name="excludeDefaultScore" value="true"/>	
 					     
