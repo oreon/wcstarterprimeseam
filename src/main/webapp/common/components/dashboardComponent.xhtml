@@ -7,9 +7,9 @@
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
 	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
 	xmlns:p="http://primefaces.org/ui"
-	xmlns:s="http://jboss.org/schemyproj/seam/taglib"
+	xmlns:s="http://jboss.org/schema/seam/taglib"
 	xmlns:wc="http://witchcraft.sourceforge.net/jsf">
-	<h:panelGrid columns="1" styleClass="summyprojrywrap">
+	<h:panelGrid columns="1" styleClass="summarywrap">
 		<h:form>
 
 			<p:pickList id="pickList"
@@ -18,11 +18,11 @@
 				itemValue="#{cities}" />
 
 
-			<h:commyprojndButton value="Get"
+			<h:commandButton value="Get"
 				action="#{viewBean.updateTree()}"
 				update="#{p:component('groupsTree')}">
 
-			</h:commyprojndButton>
+			</h:commandButton>
 		
 
 

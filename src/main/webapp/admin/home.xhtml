@@ -3,17 +3,49 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:s="http://jboss.org/schemyproj/seam/taglib"
-	xmlns:a="http://richfaces.org/a4j"
+	xmlns:s="http://jboss.org/schema/seam/taglib"
+	xmlns:a="http://richfaces.org/a4j" xmlns:p="http://primefaces.org/ui"
 	xmlns:rich="http://richfaces.org/rich"
 	xmlns:c="http://java.sun.com/jstl/core"
 	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
 	xmlns:wc="http://witchcraft.sourceforge.net/jsf"
 	template="/admin/template.xhtml">
 	<ui:define name="content">
-		<h:form>
 
+
+		<h:form>
+			<p:wizard flowListener="#{investorFlowAction.onFlowProcess}">
+
+				<p:tab id="personal" title="Personal">
+
+
+					<ui:include
+						src="/admin/entities/commerce/customer/editCustomerComponent.xhtml">
+						<ui:param name="customer" value="#{investorFlowAction.customer}" />
+					</ui:include>
+				</p:tab>
+
+				<p:tab id="question" title="Questions">
+					<ui:include
+						src="/admin/entities/questionnaire/answeredQuestionnaire/editAnsweredQuestionnaireComponentCustom.xhtml">
+						<ui:param name="answeredQuestionnaire"
+							value="#{investorFlowAction.answeredQuestionnaire}" />
+							
+							<ui:param name="excludeCustomer" value="true"/>
+            				<ui:param name="excludeDefaultScore" value="true"/>	
+					     
+					</ui:include>
+				</p:tab>
+
+				<p:tab id="results" title="Results">
+					You scored - 0 
+				</p:tab>
+
+				<p:commandButton value="Save"
+					actionListener="#{investorFlowAction.save}" process="@this" />
+			</p:wizard>
 		</h:form>
+
 
 	</ui:define>
 </ui:composition>

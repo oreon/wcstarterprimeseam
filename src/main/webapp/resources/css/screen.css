@@ -158,6 +158,13 @@ table.viewInfo td.leftCol{
 	width: 25%;
 }
 
+table.viewInfo td.rightCol{
+	font-weight: bold;
+	background:#ffe;
+	width: 25%;
+}
+
+
 
 table.viewInfo td{
 	/*background:#f9f9f3;*/

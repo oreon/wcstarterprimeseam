@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <faces-config version="2.1" xmlns="http://java.sun.com/xml/ns/javaee"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchemyproj-instance"
-	xsi:schemyprojLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd">
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd">
 
 	<application>
 	<locale-config>
@@ -14,6 +14,6 @@
 	
 	<converter>
 		<converter-id>witchcraft.ui.jsf.capitalizeConverter</converter-id>
-		<converter-class>mygrp.utils.CapitalizeConverter</converter-class>
+		<converter-class>org.witchcraft.utils.CapitalizeConverter</converter-class>
 	</converter>
 </faces-config>

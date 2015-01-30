@@ -5,7 +5,7 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:c="http://java.sun.com/jstl/core"
-	xmlns:s="http://jboss.org/schemyproj/seam/taglib">
+	xmlns:s="http://jboss.org/schema/seam/taglib">
 	
 <h:head>
 	<ui:include src ="/admin/metaIncludes.xhtml" />
@@ -36,7 +36,7 @@
 
 <s:div
 	style="border:1px solid #bbc; background-color:#eef"
-	rendered="#{facesContext.myprojximumSeverity != null}">
+	rendered="#{facesContext.maximumSeverity != null}">
 	<p:messages globalOnly="true" errorStyle="color:red" autoUpdate="true"
 		warnStyle="color:gray" infoStyle="color:green" />
 	

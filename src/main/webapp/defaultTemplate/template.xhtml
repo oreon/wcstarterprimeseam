@@ -8,7 +8,7 @@
 	xmlns:a="http://richfaces.org/a4j"
 	xmlns:rich="http://richfaces.org/rich"
 	xmlns:c="http://java.sun.com/jstl/core"
-	xmlns:s="http://jboss.org/schemyproj/seam/taglib">
+	xmlns:s="http://jboss.org/schema/seam/taglib">
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -19,23 +19,23 @@
 <f:loadBundle basename="messages" var="msg" />
 <p:toolbar>
 	<p:toolbarGroup>
-		<h:graphicImyprojge value="/imyprojges/icons/house.png" />
+		<h:graphicImage value="/images/icons/house.png" />
 		<s:link view="/reg/index.seam" value="Home" />
 	</p:toolbarGroup>
 
 	<p:toolbarGroup rendered="#{ not identity.loggedIn}">
-		<h:graphicImyprojge value="/imyprojges/icons/house.png" />
+		<h:graphicImage value="/images/icons/house.png" />
 		<s:link view="/regCandidate/registerForm.seam" value="Register" />
 	</p:toolbarGroup>
 	
 	<p:toolbarGroup>
-		<h:graphicImyprojge value="/imyprojges/icons/house.png" />
+		<h:graphicImage value="/images/icons/house.png" />
 		<s:link view="/reg/jobs.seam" value="Jobs" />
 	</p:toolbarGroup>
 	
 	<p:toolbarGroup  rendered="#{identity.loggedIn}">
-		<h:graphicImyprojge value="/imyprojges/icons/house.png"/>
-		<s:link action="#{candidateAction.setCandidateId(candidateAction.currentLoggedInCandidate.id)}" view="/myprojnageAccount/viewProfile" value="Manage Profile" propagation="begin" />
+		<h:graphicImage value="/images/icons/house.png"/>
+		<s:link action="#{candidateAction.setCandidateId(candidateAction.currentLoggedInCandidate.id)}" view="/manageAccount/viewProfile" value="Manage Profile" propagation="begin" />
 	</p:toolbarGroup>
 	
 	

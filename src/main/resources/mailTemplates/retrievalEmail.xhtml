@@ -1,16 +1,16 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
-                xmlns:s="http://jboss.org/schemyproj/seam/taglib"
-                xmlns:m="http://jboss.com/products/seam/myprojil"
+                xmlns:s="http://jboss.org/schema/seam/taglib"
+                xmlns:m="http://jboss.com/products/seam/mail"
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:f="http://java.sun.com/jsf/core">
 
 <m:message xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:m="http://jboss.com/products/seam/myprojil"
+    xmlns:m="http://jboss.com/products/seam/mail"
     xmlns:h="http://java.sun.com/jsf/html">
   
-    <m:from name="neonwc" address="neownwc@gmyprojil.com" />
-    <m:to >#{userAction.user.emyprojil}</m:to>
+    <m:from name="neonwc" address="neownwc@gmail.com" />
+    <m:to >#{userAction.user.email}</m:to>
     <m:subject>Your NRS Credentials</m:subject>
     
     <m:body>

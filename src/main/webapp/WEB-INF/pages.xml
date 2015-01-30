@@ -1,52 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <pages xmlns="http://jboss.com/products/seam/pages"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchemyproj-instance"
-       xsi:schemyprojLocation="http://jboss.com/products/seam/pages http://jboss.com/products/seam/pages-2.1.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://jboss.com/products/seam/pages http://jboss.com/products/seam/pages-2.1.xsd"
        no-conversation-view-id="/admin/home.xhtml"
        login-view-id="/login.xhtml">
        
-<!--PROTECTED REGION ID(USER_EDITABLE_PAGESROOT) ENABLED START-->  
-  <page view-id="/admin/*"> 
-    <restrict>#{identity.loggedIn}</restrict> 
-  </page>  
-  <page view-id="/admin/tasks/viewTask.xhtml"> 
-    <param name="taskId" value="#{jbpmProcessAction.taskId}"/>  
-    <navigation> 
-      <rule if-outcome="next"> 
-        <redirect view-id="/admin/tasks/tasks.xhtml"/> 
-      </rule> 
-    </navigation> 
-  </page>  
-  <!--PROTECTED REGION END-->
+<!--PROTECTED REGION ID(USER_EDITABLE_PAGESROOT) ENABLED START-->
+	<page view-id="/admin/*">
+		<restrict>#{identity.loggedIn}</restrict>
+	</page>
+	<page view-id="/admin/tasks/viewTask.xhtml">
+		<param name="taskId" value="#{jbpmProcessAction.taskId}" />
+		<navigation>
+			<rule if-outcome="next">
+				<redirect view-id="/admin/tasks/tasks.xhtml" />
+			</rule>
+		</navigation>
+	</page>
+
+
+
+
+	<!--PROTECTED REGION END-->
 
     
     <page view-id="/adminLogin.xhtml">     
         <navigation from-action="#{identity.login}">
-           <redirect view-id="/admin/entities/summyprojry.xhtml"/>
+           <redirect view-id="/admin/entities/summary.xhtml"/>
         </navigation>
 	</page>
 
 	<page view-id="*">
 	
-		<!--PROTECTED REGION ID(USER_EDITABLE_PAGESROOT_BLKT_ACTION) ENABLED START-->  
-    <navigation from-action="#{identity.logout}"> 
-      <end-conversation before-redirect="true"/>  
-      <redirect view-id="/login.xhtml"/> 
-    </navigation>  
-    <navigation from-action="#{identity.login}"> 
-      <end-conversation before-redirect="true"/>  
-      <redirect view-id="/admin/home.xhtml"/> 
-    </navigation>  
-    <!--PROTECTED REGION END-->
+		<!--PROTECTED REGION ID(USER_EDITABLE_PAGESROOT_BLKT_ACTION) ENABLED START-->
+		<navigation from-action="#{identity.logout}">
+			<end-conversation before-redirect="true" />
+			<redirect view-id="/login.xhtml" />
+		</navigation>
+		<navigation from-action="#{identity.login}">
+			<end-conversation before-redirect="true" />
+			<redirect view-id="/admin/home.xhtml" />
+		</navigation>
+		<!--PROTECTED REGION END-->
 	
 		
         <navigation>
-        	<!--PROTECTED REGION ID(USER_EDITABLE_PAGESROOT_BLKT) ENABLED START-->  
-      <rule if-outcome="home"> 
-        <redirect view-id="/home.xhtml"/> 
-      </rule>  
-      <!--PROTECTED REGION END-->
+        	<!--PROTECTED REGION ID(USER_EDITABLE_PAGESROOT_BLKT) ENABLED START-->
+			<rule if-outcome="home">
+				<redirect view-id="/home.xhtml" />
+			</rule>
+			<!--PROTECTED REGION END-->
          
          
             
@@ -252,7 +256,7 @@
 		
 	</page>
 	
-	 <page view-id="/admin/entities/onepack/employee/viewEmployee.xhtml"  action="#{redirect.captureCurrentView()}">
+	 <page view-id="/admin/entities/onepack/employee/viewEmployee.xhtml"  action="#{employeeAction.onLoadView()}">
 	 	<!-- <description>View Employee: #{employee.displayName}</description> -->
 	 	<restrict>#{s:hasPermission('employee', 'view')}</restrict>
 	 	<navigation> 
@@ -269,7 +273,7 @@
 		<param name="id" value="#{employeeAction.entityId}" />
 	</page>
 	
-	<page view-id="/admin/entities/onepack/employee/listEmployee.xhtml" action="#{redirect.captureCurrentView()}" >
+	<page view-id="/admin/entities/onepack/employee/listEmployee.xhtml" action="#{employeeAction.onLoadEdit()}" >
 		<restrict>#{s:hasPermission('employee', 'view')}</restrict>
 		<navigation>
 			<rule if-outcome="viewEmployee">
@@ -364,7 +368,7 @@
 		
 	</page>
 	
-	 <page view-id="/admin/entities/onepack/department/viewDepartment.xhtml"  action="#{redirect.captureCurrentView()}">
+	 <page view-id="/admin/entities/onepack/department/viewDepartment.xhtml"  action="#{departmentAction.onLoadView()}">
 	 	<!-- <description>View Department: #{department.displayName}</description> -->
 	 	<restrict>#{s:hasPermission('department', 'view')}</restrict>
 	 	<navigation> 
@@ -381,7 +385,7 @@
 		<param name="id" value="#{departmentAction.entityId}" />
 	</page>
 	
-	<page view-id="/admin/entities/onepack/department/listDepartment.xhtml" action="#{redirect.captureCurrentView()}" >
+	<page view-id="/admin/entities/onepack/department/listDepartment.xhtml" action="#{departmentAction.onLoadEdit()}" >
 		<restrict>#{s:hasPermission('department', 'view')}</restrict>
 		<navigation>
 			<rule if-outcome="viewDepartment">
@@ -431,7 +435,7 @@
 		
 	</page>
 	
-	 <page view-id="/admin/entities/onepack/customer/viewCustomer.xhtml"  action="#{redirect.captureCurrentView()}">
+	 <page view-id="/admin/entities/onepack/customer/viewCustomer.xhtml"  action="#{customerAction.onLoadView()}">
 	 	<!-- <description>View Customer: #{customer.displayName}</description> -->
 	 	<restrict>#{s:hasPermission('customer', 'view')}</restrict>
 	 	<navigation> 
@@ -448,7 +452,7 @@
 		<param name="id" value="#{customerAction.entityId}" />
 	</page>
 	
-	<page view-id="/admin/entities/onepack/customer/listCustomer.xhtml" action="#{redirect.captureCurrentView()}" >
+	<page view-id="/admin/entities/onepack/customer/listCustomer.xhtml" action="#{customerAction.onLoadEdit()}" >
 		<restrict>#{s:hasPermission('customer', 'view')}</restrict>
 		<navigation>
 			<rule if-outcome="viewCustomer">
@@ -535,7 +539,7 @@
 		
 	</page>
 	
-	 <page view-id="/admin/entities/onepack/customerOrder/viewCustomerOrder.xhtml"  action="#{redirect.captureCurrentView()}">
+	 <page view-id="/admin/entities/onepack/customerOrder/viewCustomerOrder.xhtml"  action="#{customerOrderAction.onLoadView()}">
 	 	<!-- <description>View CustomerOrder: #{customerOrder.displayName}</description> -->
 	 	<restrict>#{s:hasPermission('customerOrder', 'view')}</restrict>
 	 	<navigation> 
@@ -552,7 +556,7 @@
 		<param name="id" value="#{customerOrderAction.entityId}" />
 	</page>
 	
-	<page view-id="/admin/entities/onepack/customerOrder/listCustomerOrder.xhtml" action="#{redirect.captureCurrentView()}" >
+	<page view-id="/admin/entities/onepack/customerOrder/listCustomerOrder.xhtml" action="#{customerOrderAction.onLoadEdit()}" >
 		<restrict>#{s:hasPermission('customerOrder', 'view')}</restrict>
 		<navigation>
 			<rule if-outcome="viewCustomerOrder">
@@ -598,8 +602,6 @@
 		
 			
 				
-				<param name="paymentMethodId" value="#{customerOrderList.paymentMethodId}"  validateModel="false" />
-				
 			
 		
 	
@@ -624,7 +626,7 @@
 		
 	</page>
 	
-	 <page view-id="/admin/entities/onepack/product/viewProduct.xhtml"  action="#{redirect.captureCurrentView()}">
+	 <page view-id="/admin/entities/onepack/product/viewProduct.xhtml"  action="#{productAction.onLoadView()}">
 	 	<!-- <description>View Product: #{product.displayName}</description> -->
 	 	<restrict>#{s:hasPermission('product', 'view')}</restrict>
 	 	<navigation> 
@@ -641,7 +643,7 @@
 		<param name="id" value="#{productAction.entityId}" />
 	</page>
 	
-	<page view-id="/admin/entities/onepack/product/listProduct.xhtml" action="#{redirect.captureCurrentView()}" >
+	<page view-id="/admin/entities/onepack/product/listProduct.xhtml" action="#{productAction.onLoadEdit()}" >
 		<restrict>#{s:hasPermission('product', 'view')}</restrict>
 		<navigation>
 			<rule if-outcome="viewProduct">
@@ -691,7 +693,7 @@
 		
 	</page>
 	
-	 <page view-id="/admin/entities/onepack/orderItem/viewOrderItem.xhtml"  action="#{redirect.captureCurrentView()}">
+	 <page view-id="/admin/entities/onepack/orderItem/viewOrderItem.xhtml"  action="#{orderItemAction.onLoadView()}">
 	 	<!-- <description>View OrderItem: #{orderItem.displayName}</description> -->
 	 	<restrict>#{s:hasPermission('orderItem', 'view')}</restrict>
 	 	<navigation> 
@@ -708,7 +710,7 @@
 		<param name="id" value="#{orderItemAction.entityId}" />
 	</page>
 	
-	<page view-id="/admin/entities/onepack/orderItem/listOrderItem.xhtml" action="#{redirect.captureCurrentView()}" >
+	<page view-id="/admin/entities/onepack/orderItem/listOrderItem.xhtml" action="#{orderItemAction.onLoadEdit()}" >
 		<restrict>#{s:hasPermission('orderItem', 'view')}</restrict>
 		<navigation>
 			<rule if-outcome="viewOrderItem">
@@ -774,7 +776,7 @@
 		
 	</page>
 	
-	 <page view-id="/admin/entities/onepack/paymentMethod/viewPaymentMethod.xhtml"  action="#{paymentMethodAction.onLoad()}">
+	 <page view-id="/admin/entities/onepack/paymentMethod/viewPaymentMethod.xhtml"  action="#{paymentMethodAction.onLoadView()}">
 	 	<!-- <description>View PaymentMethod: #{paymentMethod.displayName}</description> -->
 	 	<restrict>#{s:hasPermission('paymentMethod', 'view')}</restrict>
 	 	<navigation> 
@@ -789,10 +791,9 @@
 		</navigation>
 		<param name="paymentMethodId" value="#{paymentMethodAction.paymentMethodId}" />
 		<param name="id" value="#{paymentMethodAction.entityId}" />
-		<param name="from" value="#{paymentMethodAction.from}" />
 	</page>
 	
-	<page view-id="/admin/entities/onepack/paymentMethod/listPaymentMethod.xhtml" action="#{redirect.captureCurrentView()}" >
+	<page view-id="/admin/entities/onepack/paymentMethod/listPaymentMethod.xhtml" action="#{paymentMethodAction.onLoadEdit()}" >
 		<restrict>#{s:hasPermission('paymentMethod', 'view')}</restrict>
 		<navigation>
 			<rule if-outcome="viewPaymentMethod">
@@ -842,7 +843,7 @@
 		
 	</page>
 	
-	 <page view-id="/admin/entities/onepack/creditCard/viewCreditCard.xhtml"  action="#{redirect.captureCurrentView()}">
+	 <page view-id="/admin/entities/onepack/creditCard/viewCreditCard.xhtml"  action="#{creditCardAction.onLoadView()}">
 	 	<!-- <description>View CreditCard: #{creditCard.displayName}</description> -->
 	 	<restrict>#{s:hasPermission('creditCard', 'view')}</restrict>
 	 	<navigation> 
@@ -859,7 +860,7 @@
 		<param name="id" value="#{creditCardAction.entityId}" />
 	</page>
 	
-	<page view-id="/admin/entities/onepack/creditCard/listCreditCard.xhtml" action="#{redirect.captureCurrentView()}" >
+	<page view-id="/admin/entities/onepack/creditCard/listCreditCard.xhtml" action="#{creditCardAction.onLoadEdit()}" >
 		<restrict>#{s:hasPermission('creditCard', 'view')}</restrict>
 		<navigation>
 			<rule if-outcome="viewCreditCard">
@@ -921,7 +922,7 @@
 		
 	</page>
 	
-	 <page view-id="/admin/entities/onepack/payPal/viewPayPal.xhtml"  action="#{redirect.captureCurrentView()}">
+	 <page view-id="/admin/entities/onepack/payPal/viewPayPal.xhtml"  action="#{payPalAction.onLoadView()}">
 	 	<!-- <description>View PayPal: #{payPal.displayName}</description> -->
 	 	<restrict>#{s:hasPermission('payPal', 'view')}</restrict>
 	 	<navigation> 
@@ -938,7 +939,7 @@
 		<param name="id" value="#{payPalAction.entityId}" />
 	</page>
 	
-	<page view-id="/admin/entities/onepack/payPal/listPayPal.xhtml" action="#{redirect.captureCurrentView()}" >
+	<page view-id="/admin/entities/onepack/payPal/listPayPal.xhtml" action="#{payPalAction.onLoadEdit()}" >
 		<restrict>#{s:hasPermission('payPal', 'view')}</restrict>
 		<navigation>
 			<rule if-outcome="viewPayPal">
@@ -994,7 +995,7 @@
 		
 	</page>
 	
-	 <page view-id="/admin/entities/questionnaire/questionnaire/viewQuestionnaire.xhtml"  action="#{redirect.captureCurrentView()}">
+	 <page view-id="/admin/entities/questionnaire/questionnaire/viewQuestionnaire.xhtml"  action="#{questionnaireAction.onLoadView()}">
 	 	<!-- <description>View Questionnaire: #{questionnaire.displayName}</description> -->
 	 	<restrict>#{s:hasPermission('questionnaire', 'view')}</restrict>
 	 	<navigation> 
@@ -1011,7 +1012,7 @@
 		<param name="id" value="#{questionnaireAction.entityId}" />
 	</page>
 	
-	<page view-id="/admin/entities/questionnaire/questionnaire/listQuestionnaire.xhtml" action="#{redirect.captureCurrentView()}" >
+	<page view-id="/admin/entities/questionnaire/questionnaire/listQuestionnaire.xhtml" action="#{questionnaireAction.onLoadEdit()}" >
 		<restrict>#{s:hasPermission('questionnaire', 'view')}</restrict>
 		<navigation>
 			<rule if-outcome="viewQuestionnaire">
@@ -1061,7 +1062,7 @@
 		
 	</page>
 	
-	 <page view-id="/admin/entities/questionnaire/section/viewSection.xhtml"  action="#{redirect.captureCurrentView()}">
+	 <page view-id="/admin/entities/questionnaire/section/viewSection.xhtml"  action="#{sectionAction.onLoadView()}">
 	 	<!-- <description>View Section: #{section.displayName}</description> -->
 	 	<restrict>#{s:hasPermission('section', 'view')}</restrict>
 	 	<navigation> 
@@ -1078,7 +1079,7 @@
 		<param name="id" value="#{sectionAction.entityId}" />
 	</page>
 	
-	<page view-id="/admin/entities/questionnaire/section/listSection.xhtml" action="#{redirect.captureCurrentView()}" >
+	<page view-id="/admin/entities/questionnaire/section/listSection.xhtml" action="#{sectionAction.onLoadEdit()}" >
 		<restrict>#{s:hasPermission('section', 'view')}</restrict>
 		<navigation>
 			<rule if-outcome="viewSection">
@@ -1136,7 +1137,7 @@
 		
 	</page>
 	
-	 <page view-id="/admin/entities/questionnaire/question/viewQuestion.xhtml"  action="#{redirect.captureCurrentView()}">
+	 <page view-id="/admin/entities/questionnaire/question/viewQuestion.xhtml"  action="#{questionAction.onLoadView()}">
 	 	<!-- <description>View Question: #{question.displayName}</description> -->
 	 	<restrict>#{s:hasPermission('question', 'view')}</restrict>
 	 	<navigation> 
@@ -1153,7 +1154,7 @@
 		<param name="id" value="#{questionAction.entityId}" />
 	</page>
 	
-	<page view-id="/admin/entities/questionnaire/question/listQuestion.xhtml" action="#{redirect.captureCurrentView()}" >
+	<page view-id="/admin/entities/questionnaire/question/listQuestion.xhtml" action="#{questionAction.onLoadEdit()}" >
 		<restrict>#{s:hasPermission('question', 'view')}</restrict>
 		<navigation>
 			<rule if-outcome="viewQuestion">
@@ -1217,7 +1218,7 @@
 		
 	</page>
 	
-	 <page view-id="/admin/entities/questionnaire/answer/viewAnswer.xhtml"  action="#{redirect.captureCurrentView()}">
+	 <page view-id="/admin/entities/questionnaire/answer/viewAnswer.xhtml"  action="#{answerAction.onLoadView()}">
 	 	<!-- <description>View Answer: #{answer.displayName}</description> -->
 	 	<restrict>#{s:hasPermission('answer', 'view')}</restrict>
 	 	<navigation> 
@@ -1234,7 +1235,7 @@
 		<param name="id" value="#{answerAction.entityId}" />
 	</page>
 	
-	<page view-id="/admin/entities/questionnaire/answer/listAnswer.xhtml" action="#{redirect.captureCurrentView()}" >
+	<page view-id="/admin/entities/questionnaire/answer/listAnswer.xhtml" action="#{answerAction.onLoadEdit()}" >
 		<restrict>#{s:hasPermission('answer', 'view')}</restrict>
 		<navigation>
 			<rule if-outcome="viewAnswer">
@@ -1298,7 +1299,7 @@
 		
 	</page>
 	
-	 <page view-id="/admin/entities/questionnaire/answeredQuestion/viewAnsweredQuestion.xhtml"  action="#{redirect.captureCurrentView()}">
+	 <page view-id="/admin/entities/questionnaire/answeredQuestion/viewAnsweredQuestion.xhtml"  action="#{answeredQuestionAction.onLoadView()}">
 	 	<!-- <description>View AnsweredQuestion: #{answeredQuestion.displayName}</description> -->
 	 	<restrict>#{s:hasPermission('answeredQuestion', 'view')}</restrict>
 	 	<navigation> 
@@ -1315,7 +1316,7 @@
 		<param name="id" value="#{answeredQuestionAction.entityId}" />
 	</page>
 	
-	<page view-id="/admin/entities/questionnaire/answeredQuestion/listAnsweredQuestion.xhtml" action="#{redirect.captureCurrentView()}" >
+	<page view-id="/admin/entities/questionnaire/answeredQuestion/listAnsweredQuestion.xhtml" action="#{answeredQuestionAction.onLoadEdit()}" >
 		<restrict>#{s:hasPermission('answeredQuestion', 'view')}</restrict>
 		<navigation>
 			<rule if-outcome="viewAnsweredQuestion">
@@ -1383,7 +1384,7 @@
 		
 	</page>
 	
-	 <page view-id="/admin/entities/questionnaire/answeredQuestionnaire/viewAnsweredQuestionnaire.xhtml"  action="#{redirect.captureCurrentView()}">
+	 <page view-id="/admin/entities/questionnaire/answeredQuestionnaire/viewAnsweredQuestionnaire.xhtml"  action="#{answeredQuestionnaireAction.onLoadView()}">
 	 	<!-- <description>View AnsweredQuestionnaire: #{answeredQuestionnaire.displayName}</description> -->
 	 	<restrict>#{s:hasPermission('answeredQuestionnaire', 'view')}</restrict>
 	 	<navigation> 
@@ -1400,7 +1401,7 @@
 		<param name="id" value="#{answeredQuestionnaireAction.entityId}" />
 	</page>
 	
-	<page view-id="/admin/entities/questionnaire/answeredQuestionnaire/listAnsweredQuestionnaire.xhtml" action="#{redirect.captureCurrentView()}" >
+	<page view-id="/admin/entities/questionnaire/answeredQuestionnaire/listAnsweredQuestionnaire.xhtml" action="#{answeredQuestionnaireAction.onLoadEdit()}" >
 		<restrict>#{s:hasPermission('answeredQuestionnaire', 'view')}</restrict>
 		<navigation>
 			<rule if-outcome="viewAnsweredQuestionnaire">
@@ -1441,7 +1442,7 @@
 	
 		
 			
-				<param name="remyprojrks" value="#{answeredQuestionnaireList.answeredQuestionnaire.remyprojrks}"  validateModel="false" />
+				<param name="remarks" value="#{answeredQuestionnaireList.answeredQuestionnaire.remarks}"  validateModel="false" />
 			
 		
 	
@@ -1452,56 +1453,66 @@
     
     
    
-  <!--PROTECTED REGION ID(USER_EDITABLE_XCPT) ENABLED START-->  
-  <exception class="mygrp.exceptions.BusinessException"> 
-    <redirect> 
-      <message severity="warn">#{org.jboss.seam.handledException.message}</message> 
-    </redirect> 
-  </exception>  
-  <exception class="org.jboss.seam.framework.EntityNotFoundException"> 
-    <redirect view-id="/error.xhtml"> 
-      <message severity="warn">Record not found</message> 
-    </redirect> 
-  </exception>  
-  <exception class="javax.persistence.EntityNotFoundException"> 
-    <redirect view-id="/error.xhtml"> 
-      <message severity="warn">Record not found</message> 
-    </redirect> 
-  </exception>  
-  <exception class="javax.persistence.EntityExistsException"> 
-    <redirect view-id="/error.xhtml"> 
-      <message severity="warn">Duplicate record</message> 
-    </redirect> 
-  </exception>  
-  <exception class="javax.persistence.OptimisticLockException"> 
-    <end-conversation/>  
-    <redirect view-id="/error.xhtml"> 
-      <message severity="warn">Another user changed the same data, please try again</message> 
-    </redirect> 
-  </exception>  
-  <exception class="org.jboss.seam.security.AuthorizationException"> 
-    <redirect view-id="/error.xhtml"> 
-      <message severity="error">You don't have permission to access this resource</message> 
-    </redirect> 
-  </exception>  
-  <exception class="org.jboss.seam.security.NotLoggedInException"> 
-    <redirect view-id="/login.xhtml"> 
-      <message severity="warn">#{messages['org.jboss.seam.NotLoggedIn']}</message> 
-    </redirect> 
-  </exception>  
-  <exception class="javax.faces.application.ViewExpiredException"> 
-    <redirect view-id="/error.xhtml"> 
-      <message severity="warn">Your session has timed out, please try again</message> 
-    </redirect> 
-  </exception>  
-  <exception class="org.jboss.seam.ConcurrentRequestTimeoutException" log-level="trace"> 
-    <http-error error-code="503"/> 
-  </exception>  
-  <exception> 
-    <redirect view-id="/error.xhtml"> 
-      <message severity="error">Unexpected error, please try again</message> 
-    </redirect> 
-  </exception>  
-  <!--PROTECTED REGION END-->
+  <!--PROTECTED REGION ID(USER_EDITABLE_XCPT) ENABLED START-->
+	<exception class="org.witchcraft.exceptions.BusinessException">
+		<redirect>
+			<message severity="warn">#{org.jboss.seam.handledException.message}
+			</message>
+		</redirect>
+	</exception>
+	<exception class="org.jboss.seam.framework.EntityNotFoundException">
+		<redirect view-id="/error.xhtml">
+			<message severity="warn">Record not found</message>
+		</redirect>
+	</exception>
+	<exception class="javax.persistence.EntityNotFoundException">
+		<redirect view-id="/error.xhtml">
+			<message severity="warn">Record not found</message>
+		</redirect>
+	</exception>
+	<exception class="javax.persistence.EntityExistsException">
+		<redirect view-id="/error.xhtml">
+			<message severity="warn">Duplicate record</message>
+		</redirect>
+	</exception>
+	<exception class="javax.persistence.OptimisticLockException">
+		<end-conversation />
+		<redirect view-id="/error.xhtml">
+			<message severity="warn">Another user changed the same data, please
+				try again
+			</message>
+		</redirect>
+	</exception>
+	<exception class="org.jboss.seam.security.AuthorizationException">
+		<redirect view-id="/error.xhtml">
+			<message severity="error">You don't have permission to access this
+				resource
+			</message>
+		</redirect>
+	</exception>
+	<exception class="org.jboss.seam.security.NotLoggedInException">
+		<redirect view-id="/login.xhtml">
+			<message severity="warn">#{messages['org.jboss.seam.NotLoggedIn']}
+			</message>
+		</redirect>
+	</exception>
+	<exception class="javax.faces.application.ViewExpiredException">
+		<redirect view-id="/error.xhtml">
+			<message severity="warn">Your session has timed out, please try
+				again
+			</message>
+		</redirect>
+	</exception>
+	<exception class="org.jboss.seam.ConcurrentRequestTimeoutException"
+		log-level="trace">
+		<http-error error-code="503" />
+	</exception>
+	<exception>
+		<redirect view-id="/error.xhtml">
+			<message severity="error">Unexpected error, please try again
+			</message>
+		</redirect>
+	</exception>
+	<!--PROTECTED REGION END-->
     
 </pages>

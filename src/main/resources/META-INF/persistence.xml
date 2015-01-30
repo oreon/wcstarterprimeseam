@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Persistence deployment descriptor -->
 <persistence xmlns="http://java.sun.com/xml/ns/persistence" 
-             xmlns:xsi="http://www.w3.org/2001/XMLSchemyproj-instance"
-             xsi:schemyprojLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd" 
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd" 
              version="1.0">
 
 
@@ -11,19 +11,19 @@
       <properties>
          <property name="hibernate.hbm2ddl.auto" value="update"/>
          <property name="hibernate.show_sql" value="true"/>
-         <property name="formyprojt_sql"  value="true" />
+         <property name="format_sql"  value="true" />
          <property name="default_batch_fetch_size" value="5" />
          <property name="hibernate.cache.provider_class" value="org.hibernate.cache.HashtableCacheProvider"/>
          <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
          <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
-         <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/myproj" />
+         <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/ma" />
          <property name="hibernate.connection.username" value="root" />
          <property name="hibernate.connection.password" value="root" />
          <property name="hibernate.c3p0.min_size" value="5" />
-         <property name="hibernate.c3p0.myprojx_size" value="20" />
+         <property name="hibernate.c3p0.max_size" value="20" />
          <property name="hibernate.c3p0.timeout" value="1800" />
-         <property name="hibernate.c3p0.myprojx_statements" value="50" />
-         <property name="hibernate.search.default.indexBase" value="myproj"/>
+         <property name="hibernate.c3p0.max_statements" value="50" />
+         <property name="hibernate.search.default.indexBase" value="ma"/>
       </properties>
    </persistence-unit> 
   	
@@ -33,7 +33,7 @@
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<properties>
 			<property name="hibernate.archive.autodetection" value="class" />
-			<property name="hibernate.formyprojt_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
 			<property name="hibernate.show_sql" value="false" />
 			<property name="hibernate.hbm2ddl.auto" value="update" />
 			<property name="hibernate.connection.url"

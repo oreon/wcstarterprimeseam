@@ -1,34 +1,42 @@
 
-<ui:composition 
-	xmlns:ui="http://java.sun.com/jsf/facelets"
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:s="http://jboss.org/schemyproj/seam/taglib"
-	xmlns:a="http://richfaces.org/a4j"
-	xmlns:p="http://primefaces.prime.com.tr/ui"
-	xmlns:rich="http://richfaces.org/rich"
-	xmlns:c="http://java.sun.com/jstl/core"
-	xmlns:fn="http://java.sun.com/jsp/jstl/functions" 
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:s="http://jboss.org/schema/seam/taglib"
 	xmlns:wc="http://witchcraft.sourceforge.net/jsf"
-
- template = "/defaultTemplate/template.xhtml" >	
+	template="/defaultTemplate/template.xhtml">
 	<ui:define name="content">
-	<!--
 	
-	  <h:commyprojndButton action="" value="" />
-	
-	  <h:commyprojndButton action="register" value="register" />
-	
-	  <h:commyprojndButton action="forgotCredentials" value="forgotCredentials" />
-	
-	-->
-	
- 
+	<h:messages/>
+		
+		<h:form>
+			<h3>DE22</h3>
+			<p:wizard flowListener="#{investorFlowAction.onFlowProcess}">
+			
+				<p:tab id="personal" title="Personal">
+					<ui:include
+						src="/admin/entities/commerce/customer/editCustomerComponent.xhtml" />
+				</p:tab>
 
-	
-	 <!--PROTECTED REGION ID(USER_EDITABLE_RGN_reg/index.xhtml) ENABLED START-->
+				<p:tab id="question" title="Questions">
+					<ui:include
+						src="/admin/entities/questionnaire/answeredQuestionnaire/editAnsweredQuestionnaireComponentCustom.xhtml" />
+				</p:tab>
 
-	<!--PROTECTED REGION END-->	
-	</ui:define> 
+				<p:tab id="results" title="Results">
+					You scored - 0 
+				</p:tab>
+
+
+			</p:wizard>
+		</h:form>
+
+		<!--PROTECTED REGION ID(USER_EDITABLE_RGN_reg/index.xhtml) ENABLED START-->
+
+		<!--PROTECTED REGION END-->
+	</ui:define>
 </ui:composition>
-	

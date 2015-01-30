@@ -9,11 +9,11 @@
  
         <f:facet name="header">
             <h:outputLabel value="Sorting:" />
-            <h:commyprojndLink action="#{bean.toggleSort}">
+            <h:commandLink action="#{bean.toggleSort}">
                 #{bean.sortOrders[property]}
                 <a4j:ajax render="richTable" />
                 <f:setPropertyActionListener target="#{bean.sortProperty}" value="#{property}" />
-            </h:commyprojndLink>
+            </h:commandLink>
             <br />
             <h:inputText value="#{bean.filterValues[property]}">
                 <a4j:ajax render="richTable@body scroller" event="keyup" />
