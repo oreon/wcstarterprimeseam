@@ -39,7 +39,7 @@ public class AnsweredQuestionnaireAction
 					
 					if(aq.getAnswers() == null || aq.getAnswers().isEmpty()){
 						aq.setAnswers(new ArrayList<Answer>());
-						aq.addAnswer(new Answer());
+						//aq.addAnswer(new Answer());
 					}
 				}
 				

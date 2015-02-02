@@ -20,6 +20,7 @@ import com.univeris.cxp.questionnaire.AnsweredQuestionnaire;
 import com.univeris.cxp.questionnaire.AnsweredQuestionnaireBase;
 import com.univeris.cxp.questionnaire.Question;
 import com.univeris.cxp.questionnaire.Section;
+import com.univeris.cxp.scoringstrategy.ClientScoringMethod;
 
 
 @Scope(ScopeType.PAGE)
@@ -37,6 +38,9 @@ public class InvestorFlowAction implements Serializable{
 	
 	@In(create=true)
 	CustomerAction customerAction;
+	
+	@In(create=true)
+	ClientScoringMethod clientScoringMethod;
 	
 	
 	@Create
@@ -119,7 +123,8 @@ public class InvestorFlowAction implements Serializable{
 
 	//@Override
 	public String save() {
-		
+		answeredQuestionnaire.setCustomer(customer);
+		answeredQuestionnaireAction.persist(answeredQuestionnaire);
 		return "" ; // super.save();
 	}
 

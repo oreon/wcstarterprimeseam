@@ -110,7 +110,7 @@
 					
 					<p:selectManyCheckbox id="answersId"
 						label="#{msg.answersProvided_answer}" value="#{aq.answers}"
-						required="true" disabled="false"
+						required="false" disabled="false"
 						converter="#{answerList.converter}"  rendered="#{ aq.question.answerType == 'MULTIPLE' }">
 
 						<f:selectItems value="#{aq.question.answers}" var="itemIter"
@@ -119,8 +119,8 @@
 					</p:selectManyCheckbox>					
 					
 					<p:selectOneRadio id="answerId"
-						label="#{msg.answersProvided_answer}" value="#{aq.answers.get(0)}"
-						required="true" disabled="false"
+						label="#{msg.answersProvided_answer}" value="#{aq.answer}"
+						required="false" disabled="false"
 						converter="#{answerList.converter}"  rendered="#{aq.question.answerType != 'MULTIPLE'}">
 
 						<f:selectItems value="#{aq.question.answers}" var="itemIter"

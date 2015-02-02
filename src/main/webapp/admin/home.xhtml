@@ -42,7 +42,9 @@
 				</p:tab>
 
 				<p:tab id="results" title="Results">
-					You scored - 0 
+					You scored - #{clientScoringMethod.score(investorFlowAction.answeredQuestionnaire)}
+					
+					Recommended Strategy is #{clientScoringMethod.findStrategy(investorFlowAction.answeredQuestionnaire)}
 				</p:tab>
 
 				<p:commandButton value="Save"
