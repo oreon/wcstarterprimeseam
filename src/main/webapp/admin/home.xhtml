@@ -44,6 +44,16 @@
 				<p:tab id="results" title="Results">
 					You scored - #{clientScoringMethod.score(investorFlowAction.answeredQuestionnaire)}
 					
+					
+					<p:dataTable var="sectionScore" value="#{clientScoringMethod.findScoreByCategory(investorFlowAction.answeredQuestionnaire)}">
+					  <p:column headerText="Category" sortBy="#{sectionScore.section.name}" >
+						<h:outputText value="#{sectionScore.section.name}" /> 
+					  </p:column>
+					  <p:column headerText="Score" sortBy="#{sectionScore.score}"> 
+						<h:outputText value="#{sectionScore.score}" /> 
+					  </p:column>
+					</p:dataTable>
+					
 					Recommended Strategy is #{clientScoringMethod.findStrategy(investorFlowAction.answeredQuestionnaire)}
 				</p:tab>
 
