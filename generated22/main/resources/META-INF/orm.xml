@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"
+	version="1.0">
+	<description></description>
+	
+	
+	<!--  Employee  JPA Configurations -->
+	<entity class="com.univeris.cxp.commerce.Employee" name="Employee">
+		<table name="employee"  >
+		
+		
+		
+		
+				
+				
+				
+			
+		
+		</table>
+ 	
+ 	
+	
+
+	
+
+	
+
+	</entity>
+
+	<!--  Department  JPA Configurations -->
+	<entity class="com.univeris.cxp.commerce.Department" name="Department">
+		<table name="s_department"  >
+		
+		
+		
+		
+				
+				
+					<unique-constraint>	
+					
+						<column-name>name</column-name>
+						<column-name>tenant</column-name>
+					</unique-constraint>
+				
+			
+		
+		</table>
+ 	
+ 	
+	
+
+	
+	<named-query name="department.findByUnqName">
+		<query>
+			<![CDATA[
+			select u from Department u where u.name = ?1
+			]]>
+		</query>
+	</named-query>
+	
+
+	</entity>
+
+	<!--  Customer  JPA Configurations -->
+	<entity class="com.univeris.cxp.commerce.Customer" name="Customer">
+		<table name="customer"  >
+		
+		
+		
+		
+				
+				
+			
+		
+		</table>
+ 	
+ 	
+	
+
+	
+
+	</entity>
+
+	<!--  CustomerOrder  JPA Configurations -->
+	<entity class="com.univeris.cxp.commerce.CustomerOrder" name="CustomerOrder">
+		<table name="customerorder"  >
+		
+		
+		
+		
+				
+				
+				
+				
+				
+			
+		
+		</table>
+ 	
+ 	
+	
+
+	
+
+	
+
+	
+
+	
+
+	</entity>
+
+	<!--  Product  JPA Configurations -->
+	<entity class="com.univeris.cxp.commerce.Product" name="Product">
+		<table name="product"  >
+		
+		
+		
+		
+				
+			
+		
+		</table>
+ 	
+ 	
+	
+
+	</entity>
+
+	<!--  OrderItem  JPA Configurations -->
+	<entity class="com.univeris.cxp.commerce.OrderItem" name="OrderItem">
+		<table name="orderitem"  >
+		
+		
+		
+		
+				
+				
+				
+			
+		
+		</table>
+ 	
+ 	
+	
+
+	
+
+	
+
+	</entity>
+
+	<!--  PaymentMethod  JPA Configurations -->
+	<entity class="com.univeris.cxp.commerce.PaymentMethod" name="PaymentMethod">
+		<table name="paymentmethod"  >
+		
+		
+		
+		
+				
+			
+		
+		</table>
+ 	
+ 	
+	
+
+	</entity>
+
+	<!--  CreditCard  JPA Configurations -->
+	<entity class="com.univeris.cxp.commerce.CreditCard" name="CreditCard">
+		<table name="creditcard"  >
+		
+		
+		
+		
+				
+				
+			
+		
+		</table>
+ 	
+ 	
+	
+
+	
+
+	</entity>
+
+	<!--  PayPal  JPA Configurations -->
+	<entity class="com.univeris.cxp.commerce.PayPal" name="PayPal">
+		<table name="paypal"  >
+		
+		
+		
+		
+				
+			
+		
+		</table>
+ 	
+ 	
+	
+
+	</entity>
+
+	<!--  InvestorProfile  JPA Configurations -->
+	<entity class="com.univeris.cxp.investors.InvestorProfile" name="InvestorProfile">
+		<table name="investorprofile"  >
+		
+		
+		
+		
+				
+				
+				
+				
+				
+				
+			
+		
+		</table>
+ 	
+ 	
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	</entity>
+
+	<!--  InvestingGoal  JPA Configurations -->
+	<entity class="com.univeris.cxp.investors.InvestingGoal" name="InvestingGoal">
+		<table name="investinggoal"  >
+		
+		
+		
+		
+				
+				
+				
+				
+				
+			
+		
+		</table>
+ 	
+ 	
+	
+
+	
+
+	
+
+	
+
+	
+
+	</entity>
+
+	<!--  InvestingGoalPlanCode  JPA Configurations -->
+	<entity class="com.univeris.cxp.investors.InvestingGoalPlanCode" name="InvestingGoalPlanCode">
+		<table name="investinggoalplancode"  >
+		
+		
+		
+		
+				
+			
+		
+		</table>
+ 	
+ 	
+	
+
+	</entity>
+
+	<!--  Questionnaire  JPA Configurations -->
+	<entity class="com.univeris.cxp.questionnaire.Questionnaire" name="Questionnaire">
+		<table name="questionnaire"  >
+		
+		
+		
+		
+				
+					<unique-constraint>	
+					
+						<column-name>name</column-name>
+						<column-name>tenant</column-name>
+					</unique-constraint>
+				
+				
+				
+				
+			
+		
+		</table>
+ 	
+ 	
+	
+	<named-query name="questionnaire.findByUnqName">
+		<query>
+			<![CDATA[
+			select u from Questionnaire u where u.name = ?1
+			]]>
+		</query>
+	</named-query>
+	
+
+	
+
+	
+
+	
+
+	</entity>
+
+	<!--  Section  JPA Configurations -->
+	<entity class="com.univeris.cxp.questionnaire.Section" name="Section">
+		<table name="section"  >
+		
+		
+		
+		
+				
+				
+				
+				
+			
+		
+		</table>
+ 	
+ 	
+	
+
+	
+
+	
+
+	
+
+	</entity>
+
+	<!--  Question  JPA Configurations -->
+	<entity class="com.univeris.cxp.questionnaire.Question" name="Question">
+		<table name="question"  >
+		
+		
+		
+		
+				
+				
+				
+				
+			
+		
+		</table>
+ 	
+ 	
+	
+
+	
+
+	
+
+	
+
+	</entity>
+
+	<!--  Answer  JPA Configurations -->
+	<entity class="com.univeris.cxp.questionnaire.Answer" name="Answer">
+		<table name="answer"  >
+		
+		
+		
+		
+				
+				
+				
+			
+		
+		</table>
+ 	
+ 	
+	
+
+	
+
+	
+
+	</entity>
+
+	<!--  AnsweredQuestion  JPA Configurations -->
+	<entity class="com.univeris.cxp.questionnaire.AnsweredQuestion" name="AnsweredQuestion">
+		<table name="answeredquestion"  >
+		
+		
+		
+		
+				
+				
+				
+				
+			
+		
+		</table>
+ 	
+ 	
+	
+
+	
+
+	
+
+	
+
+	</entity>
+
+	<!--  AnsweredQuestionnaire  JPA Configurations -->
+	<entity class="com.univeris.cxp.questionnaire.AnsweredQuestionnaire" name="AnsweredQuestionnaire">
+		<table name="answeredquestionnaire"  >
+		
+		
+		
+		
+				
+				
+				
+				
+				
+			
+		
+		</table>
+ 	
+ 	
+	
+
+	
+
+	
+
+	
+
+	
+
+	</entity>
+
+	<!--  MappingEntry  JPA Configurations -->
+	<entity class="com.univeris.cxp.questionnaire.MappingEntry" name="MappingEntry">
+		<table name="mappingentry"  >
+		
+		
+		
+		
+				
+				
+				
+			
+		
+		</table>
+ 	
+ 	
+	
+
+	
+
+	
+
+	</entity>
+
+	<!--  CategoryMappingEntry  JPA Configurations -->
+	<entity class="com.univeris.cxp.questionnaire.CategoryMappingEntry" name="CategoryMappingEntry">
+		<table name="categorymappingentry"  >
+		
+		
+		
+		
+			
+		
+		</table>
+ 	
+ 	
+	</entity>
+
+	<!--  QuestionnaireMappingEntry  JPA Configurations -->
+	<entity class="com.univeris.cxp.questionnaire.QuestionnaireMappingEntry" name="QuestionnaireMappingEntry">
+		<table name="questionnairemappingentry"  >
+		
+		
+		
+		
+			
+		
+		</table>
+ 	
+ 	
+	</entity>
+
+	
+	
+</entity-mappings>
+	
