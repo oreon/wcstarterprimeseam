@@ -30,8 +30,7 @@
 						escape="false" id="remarks#{entityId}"
 						rendered="#{skipPermissionCheck == 'true' || s:hasPermission('answeredQuestionnaire', 'editRemarks')}"
 						label="#{msg.answeredQuestionnaire_remarks}" required="false"
-						disabled="false"
-						value="#{answeredQuestionnaire.remarks}"></p:editor>
+						disabled="false" value="#{answeredQuestionnaire.remarks}"></p:editor>
 				</s:decorate>
 				<s:decorate id="defaultScoreDecorate"
 					rendered="#{ ! excludeDefaultScore == true}"
@@ -44,8 +43,7 @@
 						id="defaultScore#{entityId}"
 						rendered="#{skipPermissionCheck == 'true' || s:hasPermission('answeredQuestionnaire', 'editDefaultScore')}"
 						label="#{msg.answeredQuestionnaire_defaultScore}" required="false"
-						disabled="false"
-						value="#{answeredQuestionnaire.defaultScore}"></p:spinner>
+						disabled="false" value="#{answeredQuestionnaire.defaultScore}"></p:spinner>
 				</s:decorate>
 				<s:decorate id="questionnaireIdDecorate"
 					rendered="#{ ! excludeQuestionnaire == true}"
@@ -57,8 +55,7 @@
 
 					<p:selectOneMenu id="questionnaireId"
 						label="#{msg.answeredQuestionnaire_questionnaire}"
-						value="#{answeredQuestionnaire.questionnaire}"
-						required="true"
+						value="#{answeredQuestionnaire.questionnaire}" required="true"
 						rendered="#{skipPermissionCheck == 'true' || s:hasPermission('answeredQuestionnaire', 'editQuestionnaire')}"
 						disabled="false" converter="#{questionnaireList.converter}">
 						<f:selectItem itemLabel="Select One" itemValue="" />
@@ -83,8 +80,7 @@
 					</ui:define>
 					<p:selectOneMenu id="customerId"
 						label="#{msg.answeredQuestionnaire_customer}"
-						value="#{answeredQuestionnaire.customer}"
-						required="true"
+						value="#{answeredQuestionnaire.customer}" required="true"
 						rendered="#{skipPermissionCheck == 'true' || s:hasPermission('answeredQuestionnaire', 'editCustomer')}"
 						disabled="false" converter="#{customerList.converter}">
 						<f:selectItem itemLabel="Select One" itemValue="" />
@@ -101,36 +97,38 @@
 						value="#{msg.answeredQuestionnaire_answeredQuestions}" />
 				</f:facet>
 
-				<ui:repeat
-					value="#{answeredQuestionnaire.answeredQuestions}"
-					var="aq">
+				<ui:repeat value="#{answeredQuestionnaire.answeredQuestionSections}"
+					var="section">
+
+					<h3>#{section.section.name}</h3>
+
+					<ui:repeat value="#{section.answeredQuestions}" var="aq">
 
 
-					<h4>#{aq.question.text} :</h4>
-					
-					<p:selectManyCheckbox id="answersId"
-						label="#{msg.answersProvided_answer}" value="#{aq.answers}"
-						required="true" disabled="false"
-						converter="#{answerList.converter}"  rendered="#{ aq.question.answerType == 'MULTIPLE' }">
+						<h4>#{aq.question.text} :</h4>
 
-						<f:selectItems value="#{aq.question.answers}" var="itemIter"
-							itemLabel="#{itemIter.displayName}" itemValue="#{itemIter}" />
-						<f:attribute name="collectionType" value="java.util.ArrayList" />
-					</p:selectManyCheckbox>					
-					
-					<p:selectOneRadio id="answerId"
-						label="#{msg.answersProvided_answer}" value="#{aq.answers.get(0)}"
-						required="true" disabled="false"
-						converter="#{answerList.converter}"  rendered="#{aq.question.answerType != 'MULTIPLE'}">
+						<p:selectManyCheckbox id="answersId"
+							label="#{msg.answersProvided_answer}" value="#{aq.answers}"
+							required="false" disabled="false"
+							converter="#{answerList.converter}"
+							rendered="#{ aq.question.answerType == 'MULTIPLE' }">
 
-						<f:selectItems value="#{aq.question.answers}" var="itemIter"
-							itemLabel="#{itemIter.displayName}" itemValue="#{itemIter}" />
-					</p:selectOneRadio>
-					
-					
-					
+							<f:selectItems value="#{aq.question.answers}" var="itemIter"
+								itemLabel="#{itemIter.displayName}" itemValue="#{itemIter}" />
+							<f:attribute name="collectionType" value="java.util.ArrayList" />
+						</p:selectManyCheckbox>
 
-					<hr />
+						<p:selectOneRadio id="answerId"
+							label="#{msg.answersProvided_answer}" value="#{aq.answer}"
+							required="false" disabled="false"
+							converter="#{answerList.converter}"
+							rendered="#{aq.question.answerType != 'MULTIPLE'}">
+
+							<f:selectItems value="#{aq.question.answers}" var="itemIter"
+								itemLabel="#{itemIter.displayName}" itemValue="#{itemIter}" />
+						</p:selectOneRadio>
+
+					</ui:repeat>
 				</ui:repeat>
 			</p:panel>
 			<br />
