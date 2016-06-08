@@ -13,55 +13,96 @@
 	<ui:define name="content">
 
 
+		<h3>Welcome to TD case management</h3>
+		
 		<h:form>
-			<p:wizard flowListener="#{investorFlowAction.onFlowProcess}">
+		
+		My Tasks 
+		<p:dataTable var="task" value="#{associateAction.myTasks}"
+			id="associateList" paginator="true" lazy="true" rows="20"
+			tableStyle="width:auto">
+
+			<p:column headerText="Task id">
+
+				<h:commandLink actionListener="#{caseTaskInstanceAction.load()}"
+					action="/admin/entities/bbwpcase/caseTaskInstance/editCaseTaskInstance.xhtml">
+					<h:outputText value="#{task.id}" />
+					
+					<f:param name="taskInstanceId" value="#{task.id}" />
+					<f:param name="taskName" value="#{task.name}" />
+					
+					<f:param name="processInstanceId" value="#{task.processId}" />
+					<f:param name="processName" value="Annual" />
+					
+				</h:commandLink>
+			</p:column>
+
+			<p:column headerText="Process id">
+				<h:outputText value="#{task.processId}" />
+			</p:column>
+
+			<p:column headerText="Task Name">
+				<h:outputText value="#{task.name}"></h:outputText>
+			</p:column>
 			
-				<p:tab id="answer" title="Abswer">
-					<h:inputText value="#{investorFlowAction.answer}"> </h:inputText>
-				</p:tab>
+			<p:column headerText="Customer">
+				<h:outputText value="#{task.customer}"></h:outputText>
+			</p:column>
+			
+			<p:column headerText="Status">
+				<h:outputText value="#{task.status}"></h:outputText>
+			</p:column>
 
-				<p:tab id="personal" title="Personal">
+		</p:dataTable>
+		
+		
+		Available  Tasks 
+		
+		<p:dataTable var="task" value="#{associateAction.potentialTasks}"
+			id="associatePotential" paginator="true" lazy="true" rows="20"
+			tableStyle="width:auto">
 
-					<ui:include
-						src="/admin/entities/commerce/customer/editCustomerComponent.xhtml">
-						<ui:param name="customer" value="#{investorFlowAction.customer}" />
-					</ui:include>
-				</p:tab>
+			<p:column headerText="Task id">
 
-				<p:tab id="question" title="Questions">
-					<ui:include
-						src="/admin/entities/questionnaire/answeredQuestionnaire/editAnsweredQuestionnaireComponentCustom.xhtml">
-						<ui:param name="answeredQuestionnaire"
-							value="#{investorFlowAction.answeredQuestionnaire}" />
-							
-							<ui:param name="myaction" value="#{investorFlowAction}" />
-							<ui:param name="excludeCustomer" value="true"/>
-            				<ui:param name="excludeDefaultScore" value="true"/>	
-					     
-					</ui:include>
-				</p:tab>
-
-				<p:tab id="results" title="Results">
-					You scored - #{clientScoringMethod.score(investorFlowAction.answeredQuestionnaire)}
+				<h:commandLink actionListener="#{caseTaskInstanceAction.load()}"
+					action="/admin/entities/bbwpcase/caseTaskInstance/editCaseTaskInstance.xhtml">
+					<h:outputText value="#{task.id}" />
 					
+					<f:param name="taskInstanceId" value="#{task.id}" />
+					<f:param name="taskName" value="#{task.name}" />
 					
-					<p:dataTable var="sectionScore" value="#{clientScoringMethod.findScoreByCategory(investorFlowAction.answeredQuestionnaire)}">
-					  <p:column headerText="Category" sortBy="#{sectionScore.section.name}" >
-						<h:outputText value="#{sectionScore.section.name}" /> 
-					  </p:column>
-					  <p:column headerText="Score" sortBy="#{sectionScore.score}"> 
-						<h:outputText value="#{sectionScore.score}" /> 
-					  </p:column>
-					</p:dataTable>
+					<f:param name="processInstanceId" value="#{task.processId}" />
+					<f:param name="processName" value="Annual" />
 					
-					Recommended Strategy is #{clientScoringMethod.findStrategy(investorFlowAction.answeredQuestionnaire)}
-				</p:tab>
+				</h:commandLink>
+			</p:column>
 
-				<p:commandButton value="Save"
-					actionListener="#{investorFlowAction.save}" process="@this" />
-			</p:wizard>
-		</h:form>
+			<p:column headerText="Process id">
+				<h:outputText value="#{task.processId}" />
+			</p:column>
 
+			<p:column headerText="Task Name">
+				<h:outputText value="#{task.name}"></h:outputText>
+			</p:column>
+			
+			<p:column headerText="Customer">
+				<h:outputText value="#{task.customer}"></h:outputText>
+			</p:column>
+			
+			<p:column headerText="Status">
+				<h:outputText value="#{task.status}"></h:outputText>
+			</p:column>
+			
+			
+			<p:column headerText="Assign">
+				<h:commandLink actionListener="#{associateAction.claimTask(task.id)}">
+					<h:outputText value="Assign" />
+					<f:param name="taskInstanceId" value="#{task.id}" />
+				</h:commandLink>
+			</p:column>
+
+		</p:dataTable>
+			</h:form>
 
 	</ui:define>
 </ui:composition>

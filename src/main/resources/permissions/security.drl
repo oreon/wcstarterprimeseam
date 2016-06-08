@@ -11,7 +11,7 @@ salience 15
 no-loop 
 when
   $c : PermissionCheck( )
-  $r : Role(name == "admin")
+//  $r : Role(name == "admin")
 then
   $c.grant();
 end

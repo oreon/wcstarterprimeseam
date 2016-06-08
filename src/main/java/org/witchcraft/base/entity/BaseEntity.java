@@ -21,13 +21,15 @@ import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 import javax.persistence.Version;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.hibernate.search.annotations.Analyzer;
 import org.hibernate.search.annotations.DocumentId;
 import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.Index;
 import org.jboss.seam.Component;
 import org.witchcraft.seam.action.UserUtilAction;
-import org.witchcraft.users.AppUser;
+
+import com.td.bbwp.core.domain.users.AppUser;
 
 
 
@@ -223,6 +225,7 @@ public class BaseEntity implements Serializable{
 			setTenant(userUtilAction.getCurrentTenantId());
 		*/
 	}
+	
 	
 	
 	protected <T extends BaseEntity> String listAsString(List<T> listItems) {

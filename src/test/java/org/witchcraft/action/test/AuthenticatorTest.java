@@ -16,8 +16,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.witchcraft.seam.action.BaseAction;
-import org.witchcraft.users.AppRole;
-import org.witchcraft.users.AppUser;
+
+import com.td.bbwp.core.domain.users.AppRole;
+import com.td.bbwp.core.domain.users.AppUser;
 
 @RunWith(Arquillian.class)
 public class AuthenticatorTest extends BaseTest<AppUser> {

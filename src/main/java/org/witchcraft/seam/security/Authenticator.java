@@ -1,5 +1,6 @@
 package org.witchcraft.seam.security;
 
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.EntityManager;
@@ -18,8 +19,9 @@ import org.jboss.seam.security.Credentials;
 import org.jboss.seam.security.Identity;
 import org.jboss.seam.security.permission.RuleBasedPermissionResolver;
 import org.witchcraft.seam.action.UserUtilAction;
-import org.witchcraft.users.AppRole;
-import org.witchcraft.users.AppUser;
+
+import com.td.bbwp.core.domain.users.AppRole;
+import com.td.bbwp.core.domain.users.AppUser;
 
 @Name("authenticator")
 public class Authenticator {
@@ -46,29 +48,25 @@ public class Authenticator {
 	public boolean authenticate() {
 
 		try {
-			Session session = (Session) entityManager.getDelegate();
+			//Session session = (Session) entityManager.getDelegate();
 
-			session.disableFilter("tenantFilterDef");
+			//session.disableFilter("tenantFilterDef");
 
 			AppUser user = (AppUser) entityManager
 					.createQuery(
-							"from AppUser where username = :username and password = :password")
+							"from AppUser where userName = :username and password = :password")
 					.setParameter("username", credentials.getUsername())
 					.setParameter("password", credentials.getPassword())
 					.getSingleResult();
 			
 			
-			if(!user.getEnabled()){
-				addErrorMessage("Your account has been disabled - please contact support " );
 			
-				//add message not enalbed
-				return false;
-			}
 
 			if (user.getAppRoles() != null) {
-				Set<AppRole> roles = user.getAppRoles();
+				List<AppRole> roles = user.getAppRoles();
 				for (AppRole role : roles) {
-					identity.addRole(role.getName());
+					if(role != null )
+						identity.addRole(role.getName());
 				}
 			} else {
 				log.warn("no role found for user " + user.getUserName());
@@ -80,7 +78,7 @@ public class Authenticator {
 			RuleBasedPermissionResolver resolver = RuleBasedPermissionResolver
 					.instance();
 			if (resolver != null) {
-				// resolver.getSecurityContext().insert(user);
+				//resolver.getSecurityContext().insert(user);
 			}
 
 			userUtilAction.setCurrentUser(user);
@@ -91,7 +89,7 @@ public class Authenticator {
 			 * userAction.setInstance(user); userAction.save();
 			 */
 			
-			session.enableFilter("tenantFilterDef").setParameter("tenantId",user.getTenant());
+			//session.enableFilter("tenantFilterDef").setParameter("tenantId",user.getTenant());
 
 			return true;
 		}
@@ -110,7 +108,7 @@ public class Authenticator {
 		if (actor == null)
 			return;
 		actor.setId(user.getUserName());
-		Set<AppRole> roles = user.getAppRoles();
+		List<AppRole> roles = user.getAppRoles();
 		for (AppRole role : roles) {
 			actor.getGroupActorIds().add(role.getName());
 		}

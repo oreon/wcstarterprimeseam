@@ -80,6 +80,16 @@ public abstract class WCBaseAction<T extends BaseEntity> extends EntityHome<T> {
 	@In 
 	Conversation conversation;
 
+	protected Integer currentViewPageTabIndex = 0;
+	
+	public Integer getCurrentViewPageTabIndex() {
+		return currentViewPageTabIndex;
+	}
+
+	public void setCurrentViewPageTabIndex(Integer currentViewPageTabIndex) {
+		this.currentViewPageTabIndex = currentViewPageTabIndex;
+	}
+
 	@In(create = true)
 	// @PersistenceContext(type = PersistenceContextType.EXTENDED)
 	protected FullTextEntityManager entityManager;

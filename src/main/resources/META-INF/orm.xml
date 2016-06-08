@@ -6,5 +6,795 @@
 	<description></description>
 	
 	
+	<!--  CostCenter  JPA Configurations -->
+	<entity class="com.td.bbwp.core.domain.costcenter.CostCenter" name="CostCenter">
+		<table name="BBWP_COST_CENTER"  >
+		
+		
+		
+		
+		</table>
+ 	
+ 	
+	
+
+	
+
+	
+
+	
+	<named-query name="costCenter.findByUnqName">
+		<query>
+			<![CDATA[
+			select u from CostCenter u where u.name = ?1
+			]]>
+		</query>
+	</named-query>
+	
+
+	
+	<named-query name="costCenter.findByUnqCostCenterId">
+		<query>
+			<![CDATA[
+			select u from CostCenter u where u.costCenterId = ?1
+			]]>
+		</query>
+	</named-query>
+	
+
+	
+
+	
+
+	</entity>
+
+	<!--  District  JPA Configurations -->
+	<entity class="com.td.bbwp.core.domain.costcenter.District" name="District">
+		<table name="BBWP_DISTRICT"  >
+		
+		
+		
+		
+		</table>
+ 	
+ 	
+	
+
+	
+	<named-query name="district.findByUnqName">
+		<query>
+			<![CDATA[
+			select u from District u where u.name = ?1
+			]]>
+		</query>
+	</named-query>
+	
+
+	</entity>
+
+	<!--  CostCenterType  JPA Configurations -->
+	<entity class="com.td.bbwp.core.domain.costcenter.CostCenterType" name="CostCenterType">
+		<table name="BBWP_COST_CENTER_TYPE"  >
+		
+		
+		
+		
+		</table>
+ 	
+ 	
+	</entity>
+
+	<!--  CostCenterStatus  JPA Configurations -->
+	<entity class="com.td.bbwp.core.domain.costcenter.CostCenterStatus" name="CostCenterStatus">
+		<table name="BBWP_COST_CENTER_STATUS"  >
+		
+		
+		
+		
+		</table>
+ 	
+ 	
+	</entity>
+
+	<!--  Associate  JPA Configurations -->
+	<entity class="com.td.bbwp.core.domain.userprofile.Associate" name="Associate">
+		<table name="BBWP_ASSOCIATE"  >
+		
+		
+		
+		
+		</table>
+ 	
+ 	
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+	<named-query name="associate.findByUnqAcfId">
+		<query>
+			<![CDATA[
+			select u from Associate u where u.acfId = ?1
+			]]>
+		</query>
+	</named-query>
+	
+
+	</entity>
+
+	<!--  Language  JPA Configurations -->
+	<entity class="com.td.bbwp.core.domain.userprofile.Language" name="Language">
+		<table name="BBWP_LANGUAGE"  >
+		
+		
+		
+		
+		</table>
+ 	
+ 	
+	</entity>
+
+	<!--  HRPosition  JPA Configurations -->
+	<entity class="com.td.bbwp.core.domain.userprofile.HRPosition" name="HRPosition">
+		<table name="BBWP_HR_POSITION"  >
+		
+		
+		
+		
+		</table>
+ 	
+ 	
+	</entity>
+
+	<!--  Unavailability  JPA Configurations -->
+	<entity class="com.td.bbwp.core.domain.userprofile.Unavailability" name="Unavailability">
+		<table name="BBWP_UNAVAILABILITY"  >
+		
+		
+		
+		
+		</table>
+ 	
+ 	
+	
+
+	
+
+	
+
+	
+
+	</entity>
+
+	<!--  UnavailabilityReason  JPA Configurations -->
+	<entity class="com.td.bbwp.core.domain.userprofile.UnavailabilityReason" name="UnavailabilityReason">
+		<table name="BBWP_UNAVAILABILITY_REASON"  >
+		
+		
+		
+		
+		</table>
+ 	
+ 	
+	</entity>
+
+	<!--  RollupLevel  JPA Configurations -->
+	<entity class="com.td.bbwp.core.domain.userprofile.RollupLevel" name="RollupLevel">
+		<table name="BBWP_ROLLUP_LEVEL"  >
+		
+		
+		
+		
+		</table>
+ 	
+ 	
+	</entity>
+
+	<!--  HomeView  JPA Configurations -->
+	<entity class="com.td.bbwp.core.domain.userprofile.HomeView" name="HomeView">
+		<table name="BBWP_HOME_VIEW"  >
+		
+		
+		
+		
+		</table>
+ 	
+ 	
+	</entity>
+
+	<!--  AppUser  JPA Configurations -->
+	<entity class="com.td.bbwp.core.domain.users.AppUser" name="AppUser">
+		<table name="BBWP_APP_USER"  >
+		
+		
+		
+		
+		</table>
+ 	
+ 	
+	
+	<named-query name="appUser.findByUnqUserName">
+		<query>
+			<![CDATA[
+			select u from AppUser u where u.userName = ?1
+			]]>
+		</query>
+	</named-query>
+	
+
+	
+
+	
+
+	
+
+	
+
+	</entity>
+
+	<!--  AppRole  JPA Configurations -->
+	<entity class="com.td.bbwp.core.domain.users.AppRole" name="AppRole">
+		<table name="BBWP_APP_ROLE"  >
+		
+		
+		
+		
+		</table>
+ 	
+ 	
+	
+	<named-query name="appRole.findByUnqName">
+		<query>
+			<![CDATA[
+			select u from AppRole u where u.name = ?1
+			]]>
+		</query>
+	</named-query>
+	
+
+	
+
+	
+
+	</entity>
+
+	<!--  Group  JPA Configurations -->
+	<entity class="com.td.bbwp.core.domain.users.Group" name="Group">
+		<table name="BBWP_GROUP"  >
+		
+		
+		
+		
+		</table>
+ 	
+ 	
+	
+
+	
+
+	
+
+	</entity>
+
+	<!--  Customer  JPA Configurations -->
+	<entity class="com.td.bbwp.core.domain.customers.Customer" name="Customer">
+		<table name="BBWP_CUSTOMER"  >
+		
+		
+		
+		
+		</table>
+ 	
+ 	
+	
+
+	
+
+	
+
+	
+
+	
+	<named-query name="customer.findByUnqBbwpId">
+		<query>
+			<![CDATA[
+			select u from Customer u where u.bbwpId = ?1
+			]]>
+		</query>
+	</named-query>
+	
+
+	
+
+	
+
+	
+
+	
+
+	</entity>
+
+	<!--  DocumentType  JPA Configurations -->
+	<entity class="com.td.bbwp.core.domain.customers.DocumentType" name="DocumentType">
+		<table name="BBWP_DOCUMENT_TYPE"  >
+		
+		
+		
+		
+		</table>
+ 	
+ 	
+	</entity>
+
+	<!--  CustomerContact  JPA Configurations -->
+	<entity class="com.td.bbwp.core.domain.customers.CustomerContact" name="CustomerContact">
+		<table name="BBWP_CUSTOMER_CONTACT"  >
+		
+		
+		
+		
+		</table>
+ 	
+ 	
+	
+
+	</entity>
+
+	<!--  CaseDefinition  JPA Configurations -->
+	<entity class="com.td.bbwp.core.domain.bbwpcase.CaseDefinition" name="CaseDefinition">
+		<table name="BBWP_CASE_DEFINITION"  >
+		
+		
+		
+		
+		</table>
+ 	
+ 	
+	
+
+	
+
+	
+
+	</entity>
+
+	<!--  CaseInstance  JPA Configurations -->
+	<entity class="com.td.bbwp.core.domain.bbwpcase.CaseInstance" name="CaseInstance">
+		<table name="BBWP_CASE_INSTANCE"  >
+		
+		
+		
+		
+		</table>
+ 	
+ 	
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	</entity>
+
+	<!--  CaseTaskDefinition  JPA Configurations -->
+	<entity class="com.td.bbwp.core.domain.bbwpcase.CaseTaskDefinition" name="CaseTaskDefinition">
+		<table name="BBWP_CASE_TASK_DEFINITION"  >
+		
+		
+		
+		
+		</table>
+ 	
+ 	
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	</entity>
+
+	<!--  CaseTaskInstance  JPA Configurations -->
+	<entity class="com.td.bbwp.core.domain.bbwpcase.CaseTaskInstance" name="CaseTaskInstance">
+		<table name="BBWP_CASE_TASK_INSTANCE"  >
+		
+		
+		
+		
+		</table>
+ 	
+ 	
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	</entity>
+
+	<!--  TdwpDocument  JPA Configurations -->
+	<entity class="com.td.bbwp.core.domain.bbwpcase.TdwpDocument" name="TdwpDocument">
+		<table name="BBWP_TDWP_DOCUMENT"  >
+		
+		
+		
+		
+		</table>
+ 	
+ 	
+	
+
+	
+
+	
+
+	
+
+	
+	<named-query name="tdwpDocument.findByUnqExternalId">
+		<query>
+			<![CDATA[
+			select u from TdwpDocument u where u.externalId = ?1
+			]]>
+		</query>
+	</named-query>
+	
+
+	</entity>
+
+	<!--  CaseCategory  JPA Configurations -->
+	<entity class="com.td.bbwp.core.domain.bbwpcase.CaseCategory" name="CaseCategory">
+		<table name="BBWP_CASE_CATEGORY"  >
+		
+		
+		
+		
+		</table>
+ 	
+ 	
+	
+
+	
+
+	
+
+	
+
+	</entity>
+
+	<!--  TaskOutcome  JPA Configurations -->
+	<entity class="com.td.bbwp.core.domain.bbwpcase.TaskOutcome" name="TaskOutcome">
+		<table name="BBWP_TASK_OUTCOME"  >
+		
+		
+		
+		
+		</table>
+ 	
+ 	
+	
+
+	
+
+	</entity>
+
+	<!--  CreditPackage  JPA Configurations -->
+	<entity class="com.td.bbwp.core.domain.bbwpcase.CreditPackage" name="CreditPackage">
+		<table name="BBWP_CREDIT_PACKAGE"  >
+		
+		
+		
+		
+		</table>
+ 	
+ 	
+	
+
+	
+
+	
+
+	</entity>
+
+	<!--  SlaType  JPA Configurations -->
+	<entity class="com.td.bbwp.core.domain.bbwpcase.SlaType" name="SlaType">
+		<table name="BBWP_SLA_TYPE"  >
+		
+		
+		
+		
+		</table>
+ 	
+ 	
+	</entity>
+
+	<!--  CreditPackageField  JPA Configurations -->
+	<entity class="com.td.bbwp.core.domain.bbwpcase.CreditPackageField" name="CreditPackageField">
+		<table name="BBWP_CREDIT_PACKAGE_FIELD"  >
+		
+		
+		
+		
+		</table>
+ 	
+ 	
+	</entity>
+
+	<!--  CusotmerField  JPA Configurations -->
+	<entity class="com.td.bbwp.core.domain.bbwpcase.CusotmerField" name="CusotmerField">
+		<table name="BBWP_CUSOTMER_FIELD"  >
+		
+		
+		
+		
+		</table>
+ 	
+ 	
+	
+
+	</entity>
+
+	<!--  CaseExtensionField  JPA Configurations -->
+	<entity class="com.td.bbwp.core.domain.bbwpcase.CaseExtensionField" name="CaseExtensionField">
+		<table name="BBWP_CASE_EXTENSION_FIELD"  >
+		
+		
+		
+		
+		</table>
+ 	
+ 	
+	</entity>
+
+	<!--  TaskField  JPA Configurations -->
+	<entity class="com.td.bbwp.core.domain.bbwpcase.TaskField" name="TaskField">
+		<table name="BBWP_TASK_FIELD"  >
+		
+		
+		
+		
+		</table>
+ 	
+ 	
+	
+
+	</entity>
+
+	<!--  CustomerFieldValue  JPA Configurations -->
+	<entity class="com.td.bbwp.core.domain.bbwpcase.CustomerFieldValue" name="CustomerFieldValue">
+		<table name="BBWP_CUSTOMER_FIELD_VALUE"  >
+		
+		
+		
+		
+		</table>
+ 	
+ 	
+	
+
+	
+
+	</entity>
+
+	<!--  CaseFieldValue  JPA Configurations -->
+	<entity class="com.td.bbwp.core.domain.bbwpcase.CaseFieldValue" name="CaseFieldValue">
+		<table name="BBWP_CASE_FIELD_VALUE"  >
+		
+		
+		
+		
+		</table>
+ 	
+ 	
+	
+
+	
+
+	</entity>
+
+	<!--  CreditPackageFieldValue  JPA Configurations -->
+	<entity class="com.td.bbwp.core.domain.bbwpcase.CreditPackageFieldValue" name="CreditPackageFieldValue">
+		<table name="BBWP_CREDIT_PACKAGE_FIELD_VALUE"  >
+		
+		
+		
+		
+		</table>
+ 	
+ 	
+	
+
+	
+
+	</entity>
+
+	<!--  DocumentRequirement  JPA Configurations -->
+	<entity class="com.td.bbwp.core.domain.bbwpcase.DocumentRequirement" name="DocumentRequirement">
+		<table name="BBWP_DOCUMENT_REQUIREMENT"  >
+		
+		
+		
+		
+		</table>
+ 	
+ 	
+	
+
+	
+
+	
+
+	
+
+	
+
+	</entity>
+
+	<!--  CaseTaskFieldValue  JPA Configurations -->
+	<entity class="com.td.bbwp.core.domain.bbwpcase.CaseTaskFieldValue" name="CaseTaskFieldValue">
+		<table name="BBWP_CASE_TASK_FIELD_VALUE"  >
+		
+		
+		
+		
+		</table>
+ 	
+ 	
+	
+
+	
+
+	</entity>
+
+	<!--  CustomerExtensionDefinition  JPA Configurations -->
+	<entity class="com.td.bbwp.core.domain.bbwpcase.CustomerExtensionDefinition" name="CustomerExtensionDefinition">
+		<table name="BBWP_CUSTOMER_EXTENSION_DEFINITION"  >
+		
+		
+		
+		
+		</table>
+ 	
+ 	
+	
+
+	
+
+	</entity>
+
+	<!--  CaseStatus  JPA Configurations -->
+	<entity class="com.td.bbwp.core.domain.bbwpcase.CaseStatus" name="CaseStatus">
+		<table name="BBWP_CASE_STATUS"  >
+		
+		
+		
+		
+		</table>
+ 	
+ 	
+	
+
+	</entity>
+
+	<!--  FieldLookupTypeName  JPA Configurations -->
+	<entity class="com.td.bbwp.core.domain.customfields.FieldLookupTypeName" name="FieldLookupTypeName">
+		<table name="BBWP_FIELD_LOOKUP_TYPE_NAME"  >
+		
+		
+		
+		
+		</table>
+ 	
+ 	
+	
+	<named-query name="fieldLookupTypeName.findByUnqName">
+		<query>
+			<![CDATA[
+			select u from FieldLookupTypeName u where u.name = ?1
+			]]>
+		</query>
+	</named-query>
+	
+
+	
+
+	
+
+	</entity>
+
+	<!--  LookupEntity  JPA Configurations -->
+	<entity class="com.td.bbwp.core.domain.customfields.LookupEntity" name="LookupEntity">
+		<table name="BBWP_LOOKUP_ENTITY"  >
+		
+		
+		
+		
+		</table>
+ 	
+ 	
+	
+
+	
+
+	
+
+	</entity>
+
+	<!--  FieldType  JPA Configurations -->
+	<entity class="com.td.bbwp.core.domain.customfields.FieldType" name="FieldType">
+		<table name="BBWP_FIELD_TYPE"  >
+		
+		
+		
+		
+		</table>
+ 	
+ 	
+	
+	<named-query name="fieldType.findByUnqName">
+		<query>
+			<![CDATA[
+			select u from FieldType u where u.name = ?1
+			]]>
+		</query>
+	</named-query>
+	
+
+	</entity>
+
+	
+	
 </entity-mappings>
 	

@@ -9,7 +9,8 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.jboss.seam.Component;
 import org.witchcraft.seam.action.UserUtilAction;
-import org.witchcraft.users.AppUser;
+
+import com.td.bbwp.core.domain.users.AppUser;
 
 public class EntityListener {
 	

@@ -1,27 +1,141 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:fn="http://java.sun.com/jsp/jstl/functions" xmlns:p="http://primefaces.org/ui" xmlns:s="http://jboss.org/schema/seam/taglib" xmlns:wc="http://witchcraft.sourceforge.net/jsf">  
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:fn="http://java.sun.com/jsp/jstl/functions" xmlns:p="http://primefaces.org/ui" xmlns:pe="http://primefaces.org/ui/extensions" xmlns:s="http://jboss.org/schema/seam/taglib" xmlns:wc="http://witchcraft.sourceforge.net/jsf">  
   <h:form> 
     <p:accordionPanel activeIndex="#{panelMenuStateBean.activeIndex}"> 
-      <p:tab title="Onepack" expanded="#{panelMenuStateBean.state['Onepack']}"> 
-        <h:commandLink value="Employee" action="employee"> 
+      <p:tab title="Costcenter" expanded="#{panelMenuStateBean.state['Costcenter']}"> 
+        <h:commandLink value="CostCenter" action="costCenter"> 
           <s:conversationPropagation type="none"/> 
         </h:commandLink>  
-        <h:commandLink action="editEmployee"> 
+        <h:commandLink action="editCostCenter"> 
           <h:graphicImage value="/images/icons/add.png" style="border: 0px" alt="create"/>  
           <s:conversationPropagation type="end"/>  
-          <f:param name="employeeId" value="0"/> 
+          <f:param name="costCenterId" value="0"/> 
         </h:commandLink>  
         <br/>  
-        <h:commandLink value="Department" action="department"> 
+        <h:commandLink value="District" action="district"> 
           <s:conversationPropagation type="none"/> 
         </h:commandLink>  
-        <h:commandLink action="editDepartment"> 
+        <h:commandLink action="editDistrict"> 
           <h:graphicImage value="/images/icons/add.png" style="border: 0px" alt="create"/>  
           <s:conversationPropagation type="end"/>  
-          <f:param name="departmentId" value="0"/> 
+          <f:param name="districtId" value="0"/> 
         </h:commandLink>  
         <br/>  
+        <h:commandLink value="CostCenterType" action="costCenterType"> 
+          <s:conversationPropagation type="none"/> 
+        </h:commandLink>  
+        <h:commandLink action="editCostCenterType"> 
+          <h:graphicImage value="/images/icons/add.png" style="border: 0px" alt="create"/>  
+          <s:conversationPropagation type="end"/>  
+          <f:param name="costCenterTypeId" value="0"/> 
+        </h:commandLink>  
+        <br/>  
+        <h:commandLink value="CostCenterStatus" action="costCenterStatus"> 
+          <s:conversationPropagation type="none"/> 
+        </h:commandLink>  
+        <h:commandLink action="editCostCenterStatus"> 
+          <h:graphicImage value="/images/icons/add.png" style="border: 0px" alt="create"/>  
+          <s:conversationPropagation type="end"/>  
+          <f:param name="costCenterStatusId" value="0"/> 
+        </h:commandLink>  
+        <br/> 
+      </p:tab>  
+      <p:tab title="Userprofile" expanded="#{panelMenuStateBean.state['Userprofile']}"> 
+        <h:commandLink value="Associate" action="associate"> 
+          <s:conversationPropagation type="none"/> 
+        </h:commandLink>  
+        <h:commandLink action="editAssociate"> 
+          <h:graphicImage value="/images/icons/add.png" style="border: 0px" alt="create"/>  
+          <s:conversationPropagation type="end"/>  
+          <f:param name="associateId" value="0"/> 
+        </h:commandLink>  
+        <br/>  
+        <h:commandLink value="Language" action="language"> 
+          <s:conversationPropagation type="none"/> 
+        </h:commandLink>  
+        <h:commandLink action="editLanguage"> 
+          <h:graphicImage value="/images/icons/add.png" style="border: 0px" alt="create"/>  
+          <s:conversationPropagation type="end"/>  
+          <f:param name="languageId" value="0"/> 
+        </h:commandLink>  
+        <br/>  
+        <h:commandLink value="HRPosition" action="hRPosition"> 
+          <s:conversationPropagation type="none"/> 
+        </h:commandLink>  
+        <h:commandLink action="editHRPosition"> 
+          <h:graphicImage value="/images/icons/add.png" style="border: 0px" alt="create"/>  
+          <s:conversationPropagation type="end"/>  
+          <f:param name="hRPositionId" value="0"/> 
+        </h:commandLink>  
+        <br/>  
+        <h:commandLink value="Unavailability" action="unavailability"> 
+          <s:conversationPropagation type="none"/> 
+        </h:commandLink>  
+        <h:commandLink action="editUnavailability"> 
+          <h:graphicImage value="/images/icons/add.png" style="border: 0px" alt="create"/>  
+          <s:conversationPropagation type="end"/>  
+          <f:param name="unavailabilityId" value="0"/> 
+        </h:commandLink>  
+        <br/>  
+        <h:commandLink value="UnavailabilityReason" action="unavailabilityReason"> 
+          <s:conversationPropagation type="none"/> 
+        </h:commandLink>  
+        <h:commandLink action="editUnavailabilityReason"> 
+          <h:graphicImage value="/images/icons/add.png" style="border: 0px" alt="create"/>  
+          <s:conversationPropagation type="end"/>  
+          <f:param name="unavailabilityReasonId" value="0"/> 
+        </h:commandLink>  
+        <br/>  
+        <h:commandLink value="RollupLevel" action="rollupLevel"> 
+          <s:conversationPropagation type="none"/> 
+        </h:commandLink>  
+        <h:commandLink action="editRollupLevel"> 
+          <h:graphicImage value="/images/icons/add.png" style="border: 0px" alt="create"/>  
+          <s:conversationPropagation type="end"/>  
+          <f:param name="rollupLevelId" value="0"/> 
+        </h:commandLink>  
+        <br/>  
+        <h:commandLink value="HomeView" action="homeView"> 
+          <s:conversationPropagation type="none"/> 
+        </h:commandLink>  
+        <h:commandLink action="editHomeView"> 
+          <h:graphicImage value="/images/icons/add.png" style="border: 0px" alt="create"/>  
+          <s:conversationPropagation type="end"/>  
+          <f:param name="homeViewId" value="0"/> 
+        </h:commandLink>  
+        <br/> 
+      </p:tab>  
+      <p:tab title="Users" expanded="#{panelMenuStateBean.state['Users']}"> 
+        <h:commandLink value="AppUser" action="appUser"> 
+          <s:conversationPropagation type="none"/> 
+        </h:commandLink>  
+        <h:commandLink action="editAppUser"> 
+          <h:graphicImage value="/images/icons/add.png" style="border: 0px" alt="create"/>  
+          <s:conversationPropagation type="end"/>  
+          <f:param name="appUserId" value="0"/> 
+        </h:commandLink>  
+        <br/>  
+        <h:commandLink value="AppRole" action="appRole"> 
+          <s:conversationPropagation type="none"/> 
+        </h:commandLink>  
+        <h:commandLink action="editAppRole"> 
+          <h:graphicImage value="/images/icons/add.png" style="border: 0px" alt="create"/>  
+          <s:conversationPropagation type="end"/>  
+          <f:param name="appRoleId" value="0"/> 
+        </h:commandLink>  
+        <br/>  
+        <h:commandLink value="Group" action="group"> 
+          <s:conversationPropagation type="none"/> 
+        </h:commandLink>  
+        <h:commandLink action="editGroup"> 
+          <h:graphicImage value="/images/icons/add.png" style="border: 0px" alt="create"/>  
+          <s:conversationPropagation type="end"/>  
+          <f:param name="groupId" value="0"/> 
+        </h:commandLink>  
+        <br/> 
+      </p:tab>  
+      <p:tab title="Customers" expanded="#{panelMenuStateBean.state['Customers']}"> 
         <h:commandLink value="Customer" action="customer"> 
           <s:conversationPropagation type="none"/> 
         </h:commandLink>  
@@ -31,114 +145,233 @@
           <f:param name="customerId" value="0"/> 
         </h:commandLink>  
         <br/>  
-        <h:commandLink value="CustomerOrder" action="customerOrder"> 
+        <h:commandLink value="DocumentType" action="documentType"> 
           <s:conversationPropagation type="none"/> 
         </h:commandLink>  
-        <h:commandLink action="editCustomerOrder"> 
+        <h:commandLink action="editDocumentType"> 
           <h:graphicImage value="/images/icons/add.png" style="border: 0px" alt="create"/>  
           <s:conversationPropagation type="end"/>  
-          <f:param name="customerOrderId" value="0"/> 
+          <f:param name="documentTypeId" value="0"/> 
         </h:commandLink>  
         <br/>  
-        <h:commandLink value="Product" action="product"> 
+        <h:commandLink value="CustomerContact" action="customerContact"> 
           <s:conversationPropagation type="none"/> 
         </h:commandLink>  
-        <h:commandLink action="editProduct"> 
+        <h:commandLink action="editCustomerContact"> 
           <h:graphicImage value="/images/icons/add.png" style="border: 0px" alt="create"/>  
           <s:conversationPropagation type="end"/>  
-          <f:param name="productId" value="0"/> 
-        </h:commandLink>  
-        <br/>  
-        <h:commandLink value="OrderItem" action="orderItem"> 
-          <s:conversationPropagation type="none"/> 
-        </h:commandLink>  
-        <h:commandLink action="editOrderItem"> 
-          <h:graphicImage value="/images/icons/add.png" style="border: 0px" alt="create"/>  
-          <s:conversationPropagation type="end"/>  
-          <f:param name="orderItemId" value="0"/> 
-        </h:commandLink>  
-        <br/>  
-        <h:commandLink value="PaymentMethod" action="paymentMethod"> 
-          <s:conversationPropagation type="none"/> 
-        </h:commandLink>  
-        <h:commandLink action="editPaymentMethod"> 
-          <h:graphicImage value="/images/icons/add.png" style="border: 0px" alt="create"/>  
-          <s:conversationPropagation type="end"/>  
-          <f:param name="paymentMethodId" value="0"/> 
-        </h:commandLink>  
-        <br/>  
-        <h:commandLink value="CreditCard" action="creditCard"> 
-          <s:conversationPropagation type="none"/> 
-        </h:commandLink>  
-        <h:commandLink action="editCreditCard"> 
-          <h:graphicImage value="/images/icons/add.png" style="border: 0px" alt="create"/>  
-          <s:conversationPropagation type="end"/>  
-          <f:param name="creditCardId" value="0"/> 
-        </h:commandLink>  
-        <br/>  
-        <h:commandLink value="PayPal" action="payPal"> 
-          <s:conversationPropagation type="none"/> 
-        </h:commandLink>  
-        <h:commandLink action="editPayPal"> 
-          <h:graphicImage value="/images/icons/add.png" style="border: 0px" alt="create"/>  
-          <s:conversationPropagation type="end"/>  
-          <f:param name="payPalId" value="0"/> 
+          <f:param name="customerContactId" value="0"/> 
         </h:commandLink>  
         <br/> 
       </p:tab>  
-      <p:tab title="Questionnaire" expanded="#{panelMenuStateBean.state['Questionnaire']}"> 
-        <h:commandLink value="Questionnaire" action="questionnaire"> 
+      <p:tab title="Bbwpcase" expanded="#{panelMenuStateBean.state['Bbwpcase']}"> 
+        <h:commandLink value="CaseDefinition" action="caseDefinition"> 
           <s:conversationPropagation type="none"/> 
         </h:commandLink>  
-        <h:commandLink action="editQuestionnaire"> 
+        <h:commandLink action="editCaseDefinition"> 
           <h:graphicImage value="/images/icons/add.png" style="border: 0px" alt="create"/>  
           <s:conversationPropagation type="end"/>  
-          <f:param name="questionnaireId" value="0"/> 
+          <f:param name="caseDefinitionId" value="0"/> 
         </h:commandLink>  
         <br/>  
-        <h:commandLink value="Section" action="section"> 
+        <h:commandLink value="CaseInstance" action="caseInstance"> 
           <s:conversationPropagation type="none"/> 
         </h:commandLink>  
-        <h:commandLink action="editSection"> 
+        <h:commandLink action="editCaseInstance"> 
           <h:graphicImage value="/images/icons/add.png" style="border: 0px" alt="create"/>  
           <s:conversationPropagation type="end"/>  
-          <f:param name="sectionId" value="0"/> 
+          <f:param name="caseInstanceId" value="0"/> 
         </h:commandLink>  
         <br/>  
-        <h:commandLink value="Question" action="question"> 
+        <h:commandLink value="CaseTaskDefinition" action="caseTaskDefinition"> 
           <s:conversationPropagation type="none"/> 
         </h:commandLink>  
-        <h:commandLink action="editQuestion"> 
+        <h:commandLink action="editCaseTaskDefinition"> 
           <h:graphicImage value="/images/icons/add.png" style="border: 0px" alt="create"/>  
           <s:conversationPropagation type="end"/>  
-          <f:param name="questionId" value="0"/> 
+          <f:param name="caseTaskDefinitionId" value="0"/> 
         </h:commandLink>  
         <br/>  
-        <h:commandLink value="Answer" action="answer"> 
+        <h:commandLink value="CaseTaskInstance" action="caseTaskInstance"> 
           <s:conversationPropagation type="none"/> 
         </h:commandLink>  
-        <h:commandLink action="editAnswer"> 
+        <h:commandLink action="editCaseTaskInstance"> 
           <h:graphicImage value="/images/icons/add.png" style="border: 0px" alt="create"/>  
           <s:conversationPropagation type="end"/>  
-          <f:param name="answerId" value="0"/> 
+          <f:param name="caseTaskInstanceId" value="0"/> 
         </h:commandLink>  
         <br/>  
-        <h:commandLink value="AnsweredQuestion" action="answeredQuestion"> 
+        <h:commandLink value="TdwpDocument" action="tdwpDocument"> 
           <s:conversationPropagation type="none"/> 
         </h:commandLink>  
-        <h:commandLink action="editAnsweredQuestion"> 
+        <h:commandLink action="editTdwpDocument"> 
           <h:graphicImage value="/images/icons/add.png" style="border: 0px" alt="create"/>  
           <s:conversationPropagation type="end"/>  
-          <f:param name="answeredQuestionId" value="0"/> 
+          <f:param name="tdwpDocumentId" value="0"/> 
         </h:commandLink>  
         <br/>  
-        <h:commandLink value="AnsweredQuestionnaire" action="answeredQuestionnaire"> 
+        <h:commandLink value="CaseCategory" action="caseCategory"> 
           <s:conversationPropagation type="none"/> 
         </h:commandLink>  
-        <h:commandLink action="editAnsweredQuestionnaire"> 
+        <h:commandLink action="editCaseCategory"> 
           <h:graphicImage value="/images/icons/add.png" style="border: 0px" alt="create"/>  
           <s:conversationPropagation type="end"/>  
-          <f:param name="answeredQuestionnaireId" value="0"/> 
+          <f:param name="caseCategoryId" value="0"/> 
+        </h:commandLink>  
+        <br/>  
+        <h:commandLink value="TaskOutcome" action="taskOutcome"> 
+          <s:conversationPropagation type="none"/> 
+        </h:commandLink>  
+        <h:commandLink action="editTaskOutcome"> 
+          <h:graphicImage value="/images/icons/add.png" style="border: 0px" alt="create"/>  
+          <s:conversationPropagation type="end"/>  
+          <f:param name="taskOutcomeId" value="0"/> 
+        </h:commandLink>  
+        <br/>  
+        <h:commandLink value="CreditPackage" action="creditPackage"> 
+          <s:conversationPropagation type="none"/> 
+        </h:commandLink>  
+        <h:commandLink action="editCreditPackage"> 
+          <h:graphicImage value="/images/icons/add.png" style="border: 0px" alt="create"/>  
+          <s:conversationPropagation type="end"/>  
+          <f:param name="creditPackageId" value="0"/> 
+        </h:commandLink>  
+        <br/>  
+        <h:commandLink value="SlaType" action="slaType"> 
+          <s:conversationPropagation type="none"/> 
+        </h:commandLink>  
+        <h:commandLink action="editSlaType"> 
+          <h:graphicImage value="/images/icons/add.png" style="border: 0px" alt="create"/>  
+          <s:conversationPropagation type="end"/>  
+          <f:param name="slaTypeId" value="0"/> 
+        </h:commandLink>  
+        <br/>  
+        <h:commandLink value="CreditPackageField" action="creditPackageField"> 
+          <s:conversationPropagation type="none"/> 
+        </h:commandLink>  
+        <h:commandLink action="editCreditPackageField"> 
+          <h:graphicImage value="/images/icons/add.png" style="border: 0px" alt="create"/>  
+          <s:conversationPropagation type="end"/>  
+          <f:param name="creditPackageFieldId" value="0"/> 
+        </h:commandLink>  
+        <br/>  
+        <h:commandLink value="CusotmerField" action="cusotmerField"> 
+          <s:conversationPropagation type="none"/> 
+        </h:commandLink>  
+        <h:commandLink action="editCusotmerField"> 
+          <h:graphicImage value="/images/icons/add.png" style="border: 0px" alt="create"/>  
+          <s:conversationPropagation type="end"/>  
+          <f:param name="cusotmerFieldId" value="0"/> 
+        </h:commandLink>  
+        <br/>  
+        <h:commandLink value="CaseExtensionField" action="caseExtensionField"> 
+          <s:conversationPropagation type="none"/> 
+        </h:commandLink>  
+        <h:commandLink action="editCaseExtensionField"> 
+          <h:graphicImage value="/images/icons/add.png" style="border: 0px" alt="create"/>  
+          <s:conversationPropagation type="end"/>  
+          <f:param name="caseExtensionFieldId" value="0"/> 
+        </h:commandLink>  
+        <br/>  
+        <h:commandLink value="TaskField" action="taskField"> 
+          <s:conversationPropagation type="none"/> 
+        </h:commandLink>  
+        <h:commandLink action="editTaskField"> 
+          <h:graphicImage value="/images/icons/add.png" style="border: 0px" alt="create"/>  
+          <s:conversationPropagation type="end"/>  
+          <f:param name="taskFieldId" value="0"/> 
+        </h:commandLink>  
+        <br/>  
+        <h:commandLink value="CustomerFieldValue" action="customerFieldValue"> 
+          <s:conversationPropagation type="none"/> 
+        </h:commandLink>  
+        <h:commandLink action="editCustomerFieldValue"> 
+          <h:graphicImage value="/images/icons/add.png" style="border: 0px" alt="create"/>  
+          <s:conversationPropagation type="end"/>  
+          <f:param name="customerFieldValueId" value="0"/> 
+        </h:commandLink>  
+        <br/>  
+        <h:commandLink value="CaseFieldValue" action="caseFieldValue"> 
+          <s:conversationPropagation type="none"/> 
+        </h:commandLink>  
+        <h:commandLink action="editCaseFieldValue"> 
+          <h:graphicImage value="/images/icons/add.png" style="border: 0px" alt="create"/>  
+          <s:conversationPropagation type="end"/>  
+          <f:param name="caseFieldValueId" value="0"/> 
+        </h:commandLink>  
+        <br/>  
+        <h:commandLink value="CreditPackageFieldValue" action="creditPackageFieldValue"> 
+          <s:conversationPropagation type="none"/> 
+        </h:commandLink>  
+        <h:commandLink action="editCreditPackageFieldValue"> 
+          <h:graphicImage value="/images/icons/add.png" style="border: 0px" alt="create"/>  
+          <s:conversationPropagation type="end"/>  
+          <f:param name="creditPackageFieldValueId" value="0"/> 
+        </h:commandLink>  
+        <br/>  
+        <h:commandLink value="DocumentRequirement" action="documentRequirement"> 
+          <s:conversationPropagation type="none"/> 
+        </h:commandLink>  
+        <h:commandLink action="editDocumentRequirement"> 
+          <h:graphicImage value="/images/icons/add.png" style="border: 0px" alt="create"/>  
+          <s:conversationPropagation type="end"/>  
+          <f:param name="documentRequirementId" value="0"/> 
+        </h:commandLink>  
+        <br/>  
+        <h:commandLink value="CaseTaskFieldValue" action="caseTaskFieldValue"> 
+          <s:conversationPropagation type="none"/> 
+        </h:commandLink>  
+        <h:commandLink action="editCaseTaskFieldValue"> 
+          <h:graphicImage value="/images/icons/add.png" style="border: 0px" alt="create"/>  
+          <s:conversationPropagation type="end"/>  
+          <f:param name="caseTaskFieldValueId" value="0"/> 
+        </h:commandLink>  
+        <br/>  
+        <h:commandLink value="CustomerExtensionDefinition" action="customerExtensionDefinition"> 
+          <s:conversationPropagation type="none"/> 
+        </h:commandLink>  
+        <h:commandLink action="editCustomerExtensionDefinition"> 
+          <h:graphicImage value="/images/icons/add.png" style="border: 0px" alt="create"/>  
+          <s:conversationPropagation type="end"/>  
+          <f:param name="customerExtensionDefinitionId" value="0"/> 
+        </h:commandLink>  
+        <br/>  
+        <h:commandLink value="CaseStatus" action="caseStatus"> 
+          <s:conversationPropagation type="none"/> 
+        </h:commandLink>  
+        <h:commandLink action="editCaseStatus"> 
+          <h:graphicImage value="/images/icons/add.png" style="border: 0px" alt="create"/>  
+          <s:conversationPropagation type="end"/>  
+          <f:param name="caseStatusId" value="0"/> 
+        </h:commandLink>  
+        <br/> 
+      </p:tab>  
+      <p:tab title="Customfields" expanded="#{panelMenuStateBean.state['Customfields']}"> 
+        <h:commandLink value="FieldLookupTypeName" action="fieldLookupTypeName"> 
+          <s:conversationPropagation type="none"/> 
+        </h:commandLink>  
+        <h:commandLink action="editFieldLookupTypeName"> 
+          <h:graphicImage value="/images/icons/add.png" style="border: 0px" alt="create"/>  
+          <s:conversationPropagation type="end"/>  
+          <f:param name="fieldLookupTypeNameId" value="0"/> 
+        </h:commandLink>  
+        <br/>  
+        <h:commandLink value="LookupEntity" action="lookupEntity"> 
+          <s:conversationPropagation type="none"/> 
+        </h:commandLink>  
+        <h:commandLink action="editLookupEntity"> 
+          <h:graphicImage value="/images/icons/add.png" style="border: 0px" alt="create"/>  
+          <s:conversationPropagation type="end"/>  
+          <f:param name="lookupEntityId" value="0"/> 
+        </h:commandLink>  
+        <br/>  
+        <h:commandLink value="FieldType" action="fieldType"> 
+          <s:conversationPropagation type="none"/> 
+        </h:commandLink>  
+        <h:commandLink action="editFieldType"> 
+          <h:graphicImage value="/images/icons/add.png" style="border: 0px" alt="create"/>  
+          <s:conversationPropagation type="end"/>  
+          <f:param name="fieldTypeId" value="0"/> 
         </h:commandLink>  
         <br/> 
       </p:tab> 

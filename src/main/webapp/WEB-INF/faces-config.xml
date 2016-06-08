@@ -16,4 +16,11 @@
 		<converter-id>witchcraft.ui.jsf.capitalizeConverter</converter-id>
 		<converter-class>org.witchcraft.utils.CapitalizeConverter</converter-class>
 	</converter>
+	
+	<converter>
+		<converter-id>simpleConverter</converter-id>
+		<converter-class>org.witchcraft.seam.action.SimpleConverter</converter-class>
+	</converter>
+	
+	
 </faces-config>

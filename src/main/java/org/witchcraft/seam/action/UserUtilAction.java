@@ -8,8 +8,8 @@ import org.jboss.seam.ScopeType;
 import org.jboss.seam.annotations.In;
 import org.jboss.seam.annotations.Name;
 import org.jboss.seam.annotations.Scope;
-import org.jboss.seam.security.Identity;
-import org.witchcraft.users.AppUser;
+
+import com.td.bbwp.core.domain.users.AppUser;
 
 @Name("userUtilAction")
 @Scope(ScopeType.SESSION)

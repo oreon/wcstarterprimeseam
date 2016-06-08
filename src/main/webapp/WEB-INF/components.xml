@@ -78,7 +78,7 @@
 		remember-me="true" />
 
 
-<!-- 
+
 	<security:rule-based-permission-resolver
 		security-rules="#{securityRules}" />
 
@@ -87,7 +87,7 @@
 			<value>/permissions/security.drl</value>
 		</drools:rule-files>
 	</drools:rule-base>
- -->
+ 
 
 	<event type="org.jboss.seam.security.notLoggedIn">
 		<action execute="#{redirect.captureCurrentView}" />
