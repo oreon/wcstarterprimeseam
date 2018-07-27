@@ -17,7 +17,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
-		<drools.version>5.0.1</drools.version>
+		<drools.version>6.0.0.Final</drools.version>
 		<jetty.port>7788</jetty.port>
 	</properties>
 
@@ -435,7 +435,7 @@
 		<dependency>
 			<groupId>commons-fileupload</groupId>
 			<artifactId>commons-fileupload</artifactId>
-			<version>1.3</version>
+			<version>1.3.3</version>
 		</dependency>
 
 		<dependency>
